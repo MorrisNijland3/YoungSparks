@@ -1,0 +1,91 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    transition: 0.3s;
+}
+
+header {
+    background-color: #ffffff;
+    color: #000000;
+    text-align: center;
+    padding: 1em 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    padding: 1em 0;
+}
+
+main {
+    padding: 20px;
+}
+
+h1 {
+    color: #000000;
+}
+
+p {
+    line-height: 1.6;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    height: 100%;
+    width: 250px;
+    background-color: #333;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: left 0.3s;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.navbar__menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar__item {
+    margin: 10px 0; 
+}
+
+.navbar__link {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+}
+
+.navbar__link:hover {
+    background-color: #555;
+}
+
+.menu-icon {
+    cursor: pointer;
+    font-size: 35px;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    z-index: 1000;
+    color: #fc4c14;
+}
+
+.navbar.open {
+    left: 0;
+}
+
+.navbar.open .menu-icon {
+    left: 250px; 
+}
