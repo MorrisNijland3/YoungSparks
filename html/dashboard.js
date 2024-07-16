@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 data: {
                     labels: Object.keys(data),
                     datasets: [{
-                        label: 'Taken per Project',
+                        label: 'Taken per Klant',
                         data: Object.values(data).map(tasks => tasks.length),
                         backgroundColor: 'rgba(75, 192, 192, 0.5)',
                         borderColor: 'rgba(75, 192, 192, 1)',
@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                         x: {
                             title: {
                                 display: true,
-                                text: 'Projecten'
+                                text: 'Klanten'
                             }
                         }
                     }
