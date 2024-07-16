@@ -2,44 +2,67 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YoungSparks</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Dashboard</title>
     <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
         .chart-container {
-            width: 800px;
-            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 10px;
+            width: 100vw;
+            min-height: 100vh;
+        }
+        .chart-half {
+            width: 50vw;
+            height: 50vh;
+            position: relative; 
+            padding: 5px;
+        }
+        .totals {
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: black;
+            font-size: 16px;
+        }
+        .totals .overdue {
+            color: red; 
+        }
+        .chart-full {
+            width: 100vw;
+            height: auto;
+            padding: 5px;
+            min-height: 50vh;
+        }
+        canvas {
+            width: 100%;
+            height: 100%;
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Het Young<span style="color: #fc4c14">Sparks </span> Marketing Dashboard</h1>
-        <div class="menu-icon" onclick="toggleNav()">&#9776;</div>
-        <nav class="navbar">
-            <ul class="navbar__menu">
-                <li class="navbar__item">
-                    <a href="index.html" class="navbar__link"><span>Home</span></a>
-                <li class="navbar__item">
-                    <a href="dashboard.html" class="navbar__link"><span>Dashboard</span></a>
-                </li>
-                <li class="navbar__item">
-                    <a href="download-excel.html" class="navbar__link"><span>Download Excel</span></a>
-                </li>
-            </ul>
-        </nav>
-    </header>
     <div class="chart-container">
-        <canvas id="tasksChart"></canvas>
+        <div class="chart-half">
+            <canvas id="tasksChart"></canvas>
+            <div id="totalsDisplay" class="totals">
+                Total Tasks: <span id="totalTasks">0</span><br>
+                Overdue: <span id="totalOverdue" class="overdue">0</span>
+            </div>
+        </div>
+        <div class="chart-full">
+            <canvas id="projectsChart"></canvas>
+        </div>
     </div>
-    <div id="chartContainer" style="width: 100%; overflow-x: auto;">
-        <canvas id="projectsChart"></canvas>
-    </div>
-    
 
     <script src="dashboard.js"></script>
-    <script src="scripts.js"></script>
 </body>
 </html>
