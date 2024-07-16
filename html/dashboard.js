@@ -3,7 +3,6 @@ fetch('dashboard.json')
     .then(data => {
         const projects = Object.keys(data);
 
-        // Initialize counters for individuals and projects
         const assigneeCounts = {
             'Alec van der Schuit': 0,
             'Amber Schouten': 0,
@@ -15,19 +14,18 @@ fetch('dashboard.json')
             'Leonie van der Park': 0,
             'Miel Tiebie': 0,
             'Morris Nijland': 0,
-            'Sabrina Schot': 0,
             'Steijn van Buuren': 0,
             'Thijmen Buurs': 0,
             'Tijn de Ruijter': 0,
             'Sharon Swart': 0
         };
-        const overdueCounts = {...assigneeCounts}; // Clone for overdue tasks
-        const projectCounts = {}; // Initialize project counters
+        const overdueCounts = {...assigneeCounts}; 
+        const projectCounts = {}; 
 
         projects.forEach(project => {
-            projectCounts[project] = 0; // Initialize each project with zero count
+            projectCounts[project] = 0; 
             data[project].forEach(task => {
-                projectCounts[project]++; // Increment project count for each task
+                projectCounts[project]++; 
 
                 const dueDate = task[2]; // Assumes the due date is always at index 2
                 const currentDate = new Date();
@@ -65,7 +63,7 @@ fetch('dashboard.json')
                     borderColor: 'rgba(54, 162, 235, 1)',
                     borderWidth: 1
                 }, {
-                    label: 'Taken Overdue',
+                    label: 'Waarvan te laat',
                     data: overdueTasks,
                     backgroundColor: 'rgba(255, 99, 132, 0.5)',
                     borderColor: 'rgba(255, 99, 132, 1)',
