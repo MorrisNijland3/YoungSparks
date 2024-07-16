@@ -3,7 +3,7 @@ fetch('dashboard.json')
     .then(data => {
         const projects = Object.keys(data);
 
-        // Initialize all known individuals with zero tasks and zero overdue tasks
+        // Initialize counters for individuals and projects
         const assigneeCounts = {
             'Alec van der Schuit': 0,
             'Amber Schouten': 0,
@@ -22,9 +22,13 @@ fetch('dashboard.json')
             'Sharon Swart': 0
         };
         const overdueCounts = {...assigneeCounts}; // Clone for overdue tasks
+        const projectCounts = {}; // Initialize project counters
 
         projects.forEach(project => {
+            projectCounts[project] = 0; // Initialize each project with zero count
             data[project].forEach(task => {
+                projectCounts[project]++; // Increment project count for each task
+
                 const dueDate = task[2]; // Assumes the due date is always at index 2
                 const currentDate = new Date();
                 const isOverdue = dueDate && new Date(dueDate) < currentDate;
@@ -45,12 +49,12 @@ fetch('dashboard.json')
             });
         });
 
+        // First chart for individuals
         const assignees = Object.keys(assigneeCounts);
         const taskCounts = Object.values(assigneeCounts);
         const overdueTasks = Object.values(overdueCounts);
-
         const ctx = document.getElementById('tasksChart').getContext('2d');
-        const tasksChart = new Chart(ctx, {
+        new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: assignees,
@@ -61,7 +65,7 @@ fetch('dashboard.json')
                     borderColor: 'rgba(54, 162, 235, 1)',
                     borderWidth: 1
                 }, {
-                    label: 'Waarvan te laat',
+                    label: 'Taken Overdue',
                     data: overdueTasks,
                     backgroundColor: 'rgba(255, 99, 132, 0.5)',
                     borderColor: 'rgba(255, 99, 132, 1)',
@@ -81,6 +85,41 @@ fetch('dashboard.json')
                         title: {
                             display: true,
                             text: 'Personen'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Second chart for projects
+        const projectNames = Object.keys(projectCounts);
+        const projectTaskCounts = Object.values(projectCounts);
+        const ctx2 = document.getElementById('projectsChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: projectNames,
+                datasets: [{
+                    label: 'Taken per Project',
+                    data: projectTaskCounts,
+                    backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Hoeveelheid taken'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Projecten'
                         }
                     }
                 }
