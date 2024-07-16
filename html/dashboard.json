@@ -277,7 +277,8 @@
         [
             "Leadinfo autopilot advies",
             [
-                "Alec van der Schuit"
+                "Alec van der Schuit",
+                "Steijn van Buuren"
             ],
             "2024-07-15T10:00:00Z"
         ],
@@ -804,7 +805,7 @@
                 "Steijn van Buuren",
                 "Morris Nijland"
             ],
-            "2024-07-15T10:00:00Z"
+            "2024-07-16T10:00:00Z"
         ],
         [
             "E-BOEKHOUDEN UREN VS VERKOCHTE UREN",
@@ -840,7 +841,7 @@
             [
                 "Julia Klaver"
             ],
-            "2024-07-31T10:00:00Z"
+            "2024-08-06T10:00:00Z"
         ],
         [
             "3. CONTENT PLANNER INVULLEN",
@@ -934,7 +935,7 @@
             [
                 "Julia Klaver"
             ],
-            ""
+            "2024-08-06T10:00:00Z"
         ],
         [
             "CONTENT - Cookieyes partner account",
@@ -1088,6 +1089,13 @@
                 "Morris Nijland",
                 "Miel Tiebie"
             ],
+            ""
+        ]
+    ],
+    "Socured": [
+        [
+            "Favicon mediabestanden aanpassen",
+            [],
             ""
         ]
     ],
@@ -1839,7 +1847,7 @@
         [
             "Dupliceren webpagina iz SEO",
             [
-                "Alec van der Schuit"
+                "Miel Tiebie"
             ],
             "2024-07-16T10:00:00Z"
         ],
@@ -4349,12 +4357,29 @@
     ],
     "De Jong Reclame": [
         [
+            "MAANDMEETING: 19 - 30 AUG",
+            [
+                "Ewout Vet",
+                "Steijn van Buuren",
+                "Leonie van der Park"
+            ],
+            ""
+        ],
+        [
+            "XIXI bespreken ",
+            [
+                "Ewout Vet",
+                "Steijn van Buuren"
+            ],
+            "2024-08-19T10:00:00Z"
+        ],
+        [
             "Webdev - Hamburgermenu fixen mobiele weergave",
             [],
             ""
         ],
         [
-            "Rankings",
+            "Keyword Rankings: Monitoring",
             [],
             ""
         ],
@@ -4364,38 +4389,6 @@
                 "dcb88e06-c81c-4dda-9964-b10c63cebd77"
             ],
             "2024-07-18T10:00:00Z"
-        ],
-        [
-            "CO\u00d6RDINATOR + UITVOERDERS",
-            [],
-            ""
-        ],
-        [
-            "UREN JUNI 50 / ",
-            [],
-            ""
-        ],
-        [
-            "SEO UUR: 10/",
-            [],
-            ""
-        ],
-        [
-            "SMM UUR: 25/",
-            [],
-            ""
-        ],
-        [
-            "SEA UUR: 5/ 2,25",
-            [],
-            ""
-        ],
-        [
-            "BLOG(S) JULI - 2,5 UUR",
-            [
-                "Alec van der Schuit"
-            ],
-            "2024-07-16T10:00:00Z"
         ],
         [
             "MICROSOFT ADS - 1 UUR ",
@@ -4421,7 +4414,7 @@
         [
             "3. CONTENT PLANNER INVULLEN",
             [
-                "Julia Klaver"
+                "Amber Schouten"
             ],
             "2024-07-16T10:00:00Z"
         ],
@@ -4436,7 +4429,6 @@
         [
             "5. CONTENT BEWERKING / CREATIE + INPLANNEN",
             [
-                "Amber Schouten",
                 "Leonie van der Park"
             ],
             "2024-07-16T10:00:00Z"
@@ -4449,7 +4441,7 @@
             "2024-07-16T10:00:00Z"
         ],
         [
-            "1. ANALYSE EN RAPPORTAGE",
+            "1. ANALYSE EN RAPPORTAGE - 1 UUR",
             [
                 "Thijmen Buurs"
             ],
@@ -4461,24 +4453,9 @@
             ""
         ],
         [
-            "OPTIMALISEREN LANDINGSPAGINA'S DE JONG - 4 UUR",
+            "OPTIMALISEREN LANDINGSPAGINA'S DE JONG - SIGN - 4 UUR",
             [
                 "Alec van der Schuit"
-            ],
-            "2024-07-16T10:00:00Z"
-        ],
-        [
-            "BLOG(S) JULI - 2,5 UUR ",
-            [
-                "Alec van der Schuit"
-            ],
-            "2024-07-16T10:00:00Z"
-        ],
-        [
-            "PVA opzetten - 1 UUR",
-            [
-                "Ewout Vet",
-                "Steijn van Buuren"
             ],
             "2024-07-16T10:00:00Z"
         ],
@@ -4500,7 +4477,7 @@
             ""
         ],
         [
-            "Meeste populaire categori\u00ebn shop",
+            "Meest populaire categorie\u00ebn shop",
             [],
             ""
         ],
@@ -4519,19 +4496,14 @@
             "2024-07-31T10:00:00Z"
         ],
         [
-            "ZOEKWOORDEN ONDERZOEK & TEKSTEN SCHRIJVEN SHOP",
+            "OPTIMALISEREN LANDINGSPAGINA'S DE JONG - SHOP - 4 UUR",
             [
                 "Tijn de Ruijter"
             ],
             ""
         ],
         [
-            "SOCIAL MEDIA - HUISSTIJL",
-            [],
-            ""
-        ],
-        [
-            "CONTACTEN / OVEREENKOMST",
+            "HUISSTIJL ",
             [],
             ""
         ],
@@ -4555,18 +4527,10 @@
         ],
         [
             "CONCURRENTEN",
-            [],
-            ""
-        ],
-        [
-            "CONTACTEN",
-            [],
-            ""
-        ],
-        [
-            "OVEREENKOMST EN URENVERANTWOORDING",
-            [],
-            ""
+            [
+                "dcb88e06-c81c-4dda-9964-b10c63cebd77"
+            ],
+            "2024-07-18T10:00:00Z"
         ],
         [
             "1. ANALYSE & RAPPORTAGE",
@@ -4627,6 +4591,39 @@
         ],
         [
             "0-Meting",
+            [],
+            ""
+        ]
+    ],
+    "De Wit advocaten": [
+        [
+            "SEO check",
+            [
+                "Ewout Vet"
+            ],
+            "2024-07-19T10:00:00Z"
+        ]
+    ],
+    "De Gezonde Wereld": [
+        [
+            "ANALYSE & RAPPORTAGE",
+            [],
+            ""
+        ],
+        [
+            "SEA - DGW - (4h)",
+            [
+                "Steijn van Buuren"
+            ],
+            ""
+        ],
+        [
+            "CONTACTEN EN OVEREENKOMST",
+            [],
+            ""
+        ],
+        [
+            "Tools",
             [],
             ""
         ]
@@ -5060,9 +5057,7 @@
         ],
         [
             "6. MONITORING & ENGAGEMENT + GROEISTRATEGIE\u00cbN TOEPASSEN",
-            [
-                "Julia Klaver"
-            ],
+            [],
             "2024-06-26T10:00:00Z"
         ],
         [
@@ -5144,6 +5139,78 @@
                 "Steijn van Buuren"
             ],
             "2024-07-19T10:00:00Z"
+        ]
+    ],
+    "Kolping Boys": [
+        [
+            "HUISSTIJL",
+            [],
+            ""
+        ],
+        [
+            "VOETBAL.NL APP",
+            [],
+            ""
+        ],
+        [
+            "WEBSITE",
+            [
+                "b420c754-2d2f-476d-80fc-6958a687a956"
+            ],
+            ""
+        ],
+        [
+            "WIE DOET WAT ? | COMMUNICATIE KOLPING BOYS",
+            [],
+            ""
+        ],
+        [
+            "NIEUWSBRIEF",
+            [
+                "Ewout Vet",
+                "b420c754-2d2f-476d-80fc-6958a687a956"
+            ],
+            ""
+        ],
+        [
+            "MAANDELIJKSE UPDATE BESTUUR",
+            [
+                "b420c754-2d2f-476d-80fc-6958a687a956"
+            ],
+            ""
+        ],
+        [
+            "CONTACT GEGEVENS",
+            [],
+            ""
+        ],
+        [
+            "SOCIAL MEDIA PLAN",
+            [
+                "Ewout Vet"
+            ],
+            "2024-07-19T10:00:00Z"
+        ],
+        [
+            "FACEBOOK - INSTAGRAM",
+            [
+                "b420c754-2d2f-476d-80fc-6958a687a956"
+            ],
+            ""
+        ],
+        [
+            "CONTENTKALENDER",
+            [
+                "b420c754-2d2f-476d-80fc-6958a687a956"
+            ],
+            ""
+        ],
+        [
+            "Flyer Talent gezocht",
+            [
+                "b420c754-2d2f-476d-80fc-6958a687a956"
+            ],
+            ""
         ]
     ],
     "SchuldHulpMaatje Dijk en Waard": [
@@ -5254,6 +5321,103 @@
             ""
         ]
     ],
+    "Techosol": [
+        [
+            "CO\u00d6RDINATOR + UITVOERDERS",
+            [],
+            ""
+        ],
+        [
+            "UREN 15/",
+            [],
+            ""
+        ],
+        [
+            "CONTENT INSPIRATIE ",
+            [],
+            ""
+        ],
+        [
+            "ALG - RAPPORTAGE MAAND X",
+            [],
+            ""
+        ],
+        [
+            "UREN 15/",
+            [],
+            ""
+        ],
+        [
+            "ALG - OVERZICHT UREN + CONTACTGEGEVENS",
+            [],
+            ""
+        ],
+        [
+            "7. MONITORING & ENGAGEMENT + GROEISTRATEGIE\u00cbN TOEPASSEN",
+            [
+                "Julia Klaver"
+            ],
+            "2024-07-16T10:00:00Z"
+        ],
+        [
+            "6. CONTENT GOEDKEURING (METRICOOL)",
+            [
+                "Amber Schouten"
+            ],
+            "2024-07-25T10:00:00Z"
+        ],
+        [
+            "5. CONTENT BEWERKING / CREATIE + INPLANNEN",
+            [
+                "Amber Schouten"
+            ],
+            "2024-07-24T10:00:00Z"
+        ],
+        [
+            "4. CONTENT SHOOT (24-07-2024)",
+            [
+                "Amber Schouten",
+                "Julia Klaver"
+            ],
+            "2024-07-24T10:00:00Z"
+        ],
+        [
+            "3. CONTENT PLANNER INVULLEN",
+            [
+                "Amber Schouten"
+            ],
+            "2024-07-16T10:00:00Z"
+        ],
+        [
+            "2. MEETING + OPTIMALISATIE ",
+            [
+                "Amber Schouten"
+            ],
+            "2024-07-18T10:00:00Z"
+        ],
+        [
+            "1. ANALYSE EN RAPPORTAGE",
+            [
+                "Thijmen Buurs"
+            ],
+            "2024-08-01T10:00:00Z"
+        ],
+        [
+            "CONTACTEN / OVEREENKOMST",
+            [],
+            ""
+        ],
+        [
+            "CONCURRENTEN",
+            [],
+            ""
+        ],
+        [
+            "SOCIAL MEDIA PLAN",
+            [],
+            ""
+        ]
+    ],
     "Zonnebloem Langedijk-Zuid": [
         [
             "OPDRACHTBESCHRIJVING",
@@ -5288,6 +5452,37 @@
         [
             "SOCIAL MEDIA PLAN",
             [],
+            ""
+        ]
+    ],
+    "Werknavigator | Project NAN": [
+        [
+            "SHOOT 2",
+            [
+                "Ewout Vet"
+            ],
+            "2024-07-16T10:00:00Z"
+        ],
+        [
+            "OPDRACHT TOELICHTING",
+            [],
+            ""
+        ],
+        [
+            "CO\u00d6RDINATOR + UITVOERDERS",
+            [],
+            ""
+        ],
+        [
+            "CONTACTEN / OVEREENKOMST",
+            [],
+            ""
+        ],
+        [
+            "SOCIAL MEDIA PLAN",
+            [
+                "Ewout Vet"
+            ],
             ""
         ]
     ],
@@ -5734,9 +5929,7 @@
         ],
         [
             "PROFIEL OPBOUWEN / OPTIMALISATIE",
-            [
-                "Julia Klaver"
-            ],
+            [],
             "2024-07-17T10:00:00Z"
         ],
         [
@@ -5810,6 +6003,187 @@
                 "Leonie van der Park"
             ],
             "2024-07-15T10:00:00Z"
+        ]
+    ],
+    "BackpackersNL": [
+        [
+            "Menu structuur - 2 uur",
+            [
+                "Jim Struikenkamp"
+            ],
+            "2024-07-17T10:00:00Z"
+        ],
+        [
+            "SEO - YOUTUBE KANAAL",
+            [
+                "Miel Tiebie"
+            ],
+            "2024-07-31T10:00:00Z"
+        ],
+        [
+            "ANALYSE & RAPPORTAGE",
+            [],
+            ""
+        ],
+        [
+            "SEO - BLOG IDEE",
+            [],
+            ""
+        ],
+        [
+            "CO\u00d6RDINATOR + UITVOERDERS",
+            [],
+            ""
+        ],
+        [
+            "UREN ",
+            [],
+            ""
+        ],
+        [
+            "UREN ",
+            [],
+            ""
+        ],
+        [
+            "UREN ",
+            [],
+            ""
+        ],
+        [
+            "UREN ",
+            [],
+            ""
+        ],
+        [
+            "COOKIEBOT INSTELLEN",
+            [
+                "dcb88e06-c81c-4dda-9964-b10c63cebd77"
+            ],
+            "2024-07-18T10:00:00Z"
+        ],
+        [
+            "REVIEWS BACKPACKERS.NL",
+            [
+                "Tijn de Ruijter",
+                "Jim Struikenkamp"
+            ],
+            "2024-07-17T10:00:00Z"
+        ],
+        [
+            "8. MONITORING & ENGAGEMENT + GROEISTRATEGIE\u00cbN TOEPASSEN",
+            [],
+            ""
+        ],
+        [
+            "7. CONTENT GOEDKEURING (METRICOOL)",
+            [
+                "Amber Schouten"
+            ],
+            "2024-07-11T10:00:00Z"
+        ],
+        [
+            "6. CONTENT INPLANNEN (METRICOOL)",
+            [
+                "Julia Klaver"
+            ],
+            "2024-07-16T10:00:00Z"
+        ],
+        [
+            "5. CONTENT BEWERKING / CREATIE + INPLANNEN",
+            [
+                "Julia Klaver"
+            ],
+            "2024-07-17T10:00:00Z"
+        ],
+        [
+            "4. CONTENT SHOOT - AANLEVERING (DATUM)",
+            [],
+            ""
+        ],
+        [
+            "3. CONTENT PLANNER INVULLEN",
+            [],
+            "2024-08-13T10:00:00Z"
+        ],
+        [
+            "2. MEETING + OPTIMALISATIE ",
+            [],
+            ""
+        ],
+        [
+            "1. ANALYSE & RAPPORTAGE",
+            [],
+            ""
+        ],
+        [
+            "SOCIAL ADS - OPBOUWEN",
+            [
+                "Miel Tiebie",
+                "dcb88e06-c81c-4dda-9964-b10c63cebd77"
+            ],
+            "2024-07-22T10:00:00Z"
+        ],
+        [
+            "ALG - OVERZICHT UREN + CONTACTGEGEVENS",
+            [],
+            ""
+        ],
+        [
+            "E-MAIL MARKETING - OPBOUWEN ",
+            [
+                "Miel Tiebie"
+            ],
+            "2024-07-15T10:00:00Z"
+        ],
+        [
+            "ALG - RAPPORTAGE MAAND X",
+            [],
+            ""
+        ],
+        [
+            "SEO - OPBOUWEN - 4 UUR",
+            [
+                "Steijn van Buuren",
+                "dcb88e06-c81c-4dda-9964-b10c63cebd77"
+            ],
+            "2024-07-18T10:00:00Z"
+        ],
+        [
+            "PROFIEL OPBOUWEN / OPTIMALISATIE",
+            [
+                "Alec van der Schuit"
+            ],
+            "2024-07-16T10:00:00Z"
+        ],
+        [
+            "CONCURRENTEN",
+            [],
+            ""
+        ],
+        [
+            "SOCIAL MEDIA PLAN",
+            [],
+            ""
+        ],
+        [
+            "SEA - OPBOUWEN",
+            [
+                "Steijn van Buuren"
+            ],
+            "2024-07-10T10:00:00Z"
+        ],
+        [
+            "SEA - GOOGLE ADS - account: | Dagbudget ...",
+            [],
+            ""
+        ]
+    ],
+    "Smoking Buddha": [
+        [
+            "OPDRACHT EN CONTACTPERSONEN",
+            [],
+            ""
         ]
     ],
     "DakCenter Witex": [
