@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 data: {
                     labels: Object.keys(data),
                     datasets: [{
-                        label: 'Taken per Klant',
+                        label: 'Taken per klant',
                         data: Object.values(data).map(tasks => tasks.length),
                         backgroundColor: 'rgba(75, 192, 192, 0.5)',
                         borderColor: 'rgba(75, 192, 192, 1)',
