@@ -1,10 +1,5 @@
-from flask import Flask, jsonify, request
+from flask import Blueprint
 
-app = Flask(__name__)
+routes_bp = Blueprint('routes', __name__)
 
-@app.route('/')
-def home():
-    return jsonify()
 
-if __name__ == '__main__':
-    app.run(debug=True)
