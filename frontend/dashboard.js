@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', (event) => {
+function fetchAndUpdateData() {
     fetch('dashboard.json')
         .then(response => {
             if (!response.ok) {
@@ -53,8 +53,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
             document.getElementById('totalTasks').textContent = totalTasks;
             document.getElementById('totalOverdue').textContent = totalOverdue;
 
-            const ctx = document.getElementById('tasksChart').getContext('2d');
-            new Chart(ctx, {
+            const tasksCtx = document.getElementById('tasksChart').getContext('2d');
+            const projectsCtx = document.getElementById('projectsChart').getContext('2d');
+
+            new Chart(tasksCtx, {
                 type: 'bar',
                 data: {
                     labels: Object.keys(assigneeCounts),
@@ -91,8 +93,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 }
             });
 
-            const ctx2 = document.getElementById('projectsChart').getContext('2d');
-            new Chart(ctx2, {
+            new Chart(projectsCtx, {
                 type: 'bar',
                 data: {
                     labels: Object.keys(data),
@@ -126,4 +127,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
         .catch(error => {
             console.error('Error fetching or parsing data:', error);
         });
+}
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    fetchAndUpdateData();
+
+    setInterval(() => {
+        location.reload();
+    }, 2 * 60 * 60 * 1000); 
 });
