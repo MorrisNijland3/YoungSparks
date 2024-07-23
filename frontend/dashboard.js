@@ -25,24 +25,33 @@ function fetchAndUpdateData() {
                 'Tijn de Ruijter': 0,
                 'Sharon Swart': 0
             };
-            const overdueCounts = {...assigneeCounts};
+            const overdueCounts = { ...assigneeCounts };
+            const startedCounts = { ...assigneeCounts };
             let totalTasks = 0;
             let totalOverdue = 0;
+            let totalStarted = 0;
 
             projects.forEach(project => {
                 data[project].forEach(task => {
-                    const dueDate = task[2];
-                    const currentDate = new Date();
-                    const isOverdue = dueDate && new Date(dueDate) < currentDate;
+
+                    const dueDateStr = task[2];
+                    const startedStr = task[3]; 
+                    const isOverdue = dueDateStr.startsWith('Te laat.');
+                    
+                    const isStarted = startedStr === "50";
 
                     if (task.length > 1 && Array.isArray(task[1]) && task[1].length > 0) {
                         task[1].forEach(assignee => {
-                            if (typeof assignee === 'string' && assignee.includes(' ')) {
+                            if (typeof assignee === 'string' && assigneeCounts.hasOwnProperty(assignee)) {
                                 assigneeCounts[assignee] = (assigneeCounts[assignee] || 0) + 1;
                                 totalTasks++;
                                 if (isOverdue) {
                                     overdueCounts[assignee] = (overdueCounts[assignee] || 0) + 1;
                                     totalOverdue++;
+                                }
+                                if (isStarted) {
+                                    startedCounts[assignee] = (startedCounts[assignee] || 0) + 1;
+                                    totalStarted++;
                                 }
                             }
                         });
@@ -52,6 +61,7 @@ function fetchAndUpdateData() {
 
             document.getElementById('totalTasks').textContent = totalTasks;
             document.getElementById('totalOverdue').textContent = totalOverdue;
+            document.getElementById('totalStarted').textContent = totalStarted;
 
             const tasksCtx = document.getElementById('tasksChart').getContext('2d');
             const projectsCtx = document.getElementById('projectsChart').getContext('2d');
@@ -61,16 +71,22 @@ function fetchAndUpdateData() {
                 data: {
                     labels: Object.keys(assigneeCounts),
                     datasets: [{
-                        label: 'Taken toegewezen',
+                        label: 'Totaal toegewezen',
                         data: Object.values(assigneeCounts),
                         backgroundColor: 'rgba(54, 162, 235, 0.5)',
                         borderColor: 'rgba(54, 162, 235, 1)',
                         borderWidth: 1
                     }, {
-                        label: 'Waarvan te laat',
+                        label: 'Te laat',
                         data: Object.values(overdueCounts),
                         backgroundColor: 'rgba(255, 99, 132, 0.5)',
                         borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }, {
+                        label: 'Gestart',
+                        data: Object.values(startedCounts),
+                        backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
                         borderWidth: 1
                     }]
                 },
@@ -98,7 +114,7 @@ function fetchAndUpdateData() {
                 data: {
                     labels: Object.keys(data),
                     datasets: [{
-                        label: 'Taken per klant',
+                        label: 'Taken',
                         data: Object.values(data).map(tasks => tasks.length),
                         backgroundColor: 'rgba(75, 192, 192, 0.5)',
                         borderColor: 'rgba(75, 192, 192, 1)',
@@ -134,5 +150,5 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     setInterval(() => {
         location.reload();
-    }, 2 * 60 * 60 * 1000); 
+    }, 2 * 60 * 60 * 1000);
 });

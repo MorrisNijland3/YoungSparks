@@ -35,10 +35,16 @@ def run_existing_script1():
 
 def start_scheduler():
     if not scheduler.running:
-        scheduler.add_job(run_existing_script, 'interval', hours=2)  
+        scheduler.add_job(run_existing_script, 'interval', hours=2)
         scheduler.add_job(run_existing_script1, 'interval', hours=2)
         scheduler.start()
+        logger.info("Scheduler started and jobs are scheduled.")
 
 def shutdown_scheduler():
     if scheduler.running:
         scheduler.shutdown()
+        logger.info("Scheduler shutdown successfully.")
+
+def run_scripts_immediately():
+    run_existing_script()
+    run_existing_script1()

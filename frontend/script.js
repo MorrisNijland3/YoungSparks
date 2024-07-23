@@ -1,5 +1,3 @@
-feather.replace();
-
 function toggleNav() {
     var nav = document.querySelector('.navbar');
     var body = document.querySelector('body');

@@ -1,6 +1,7 @@
+import threading
 from flask import Flask, send_from_directory
 from flask_cors import CORS
-from backend.scheduler import start_scheduler, shutdown_scheduler
+from backend.scheduler import start_scheduler, shutdown_scheduler, run_scripts_immediately
 from backend.routes import routes_bp
 
 app = Flask(__name__, static_folder='frontend')
@@ -16,12 +17,17 @@ def serve_index():
 def serve_static(path):
     return send_from_directory(app.static_folder, path)
 
-def initialize():
-    start_scheduler()
+def run_flask_app():
+    app.run(debug=True)
 
 if __name__ == '__main__':
-    initialize()
+    run_scripts_immediately()
+
+    scheduler_thread = threading.Thread(target=start_scheduler)
+    scheduler_thread.start()
+
     try:
-        app.run(debug=True)
+        run_flask_app()
     except (KeyboardInterrupt, SystemExit):
         shutdown_scheduler()  
+        scheduler_thread.join()  

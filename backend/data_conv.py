@@ -1,6 +1,7 @@
-from fileinput import filename
-from hmac import new
-import json, os, sys
+import json
+import os
+import sys
+from datetime import datetime
 
 personen = {
     'b4d1b492-7032-463d-83af-aff06efa96ce': 'Alec van der Schuit',
@@ -18,6 +19,7 @@ personen = {
     'a1266dc0-cdf5-472c-9f17-2f851ebc2f76': 'Tijn de Ruijter',
     '4b9ccf8a-a255-4791-9b2a-4442fd1d7e3f': 'Sharon Swart'
 }
+
 file_name = 'taken.json'
 new_file_name = 'dashboard.json'
 
@@ -33,28 +35,45 @@ parent_dir = os.path.dirname(script_dir)
 json_path = os.path.join(script_dir, file_name)
 new_json_path = os.path.join(parent_dir, 'frontend', new_file_name)
 
-
 with open(json_path) as f:
     reader = json.load(f)
 
-f = open(new_json_path, 'w')
-plannen = {}
+with open(new_json_path, 'w') as f:
+    plannen = {}
 
-for task in reader:
-    voortgang = task['Voortgang']
-    plan = task['Plan']
-    title = task['Title']
-    assigned_to_json = task['AssignedToUserId']
-    due_date = task['Due']
+    for task in reader:
+        today = datetime.now()
+        voortgang = task['Voortgang']
+        plan = task['Plan']
+        title = task['Title']
+        assigned_to_json = task['AssignedToUserId']
+        due = task.get('Due', '')
+        try:
+            if due:
+                year = int(due[0:4])
+                month = int(due[5:7])
+                day = int(due[8:10])
+                due_till = f'{day}/{month}/{year} 23:59'
+                due_till = datetime.strptime(due_till, '%d/%m/%Y %H:%M')
 
-    assigned_to_dict = json.loads(assigned_to_json)
+                if due_till < today:
+                    due_date = f'Te laat.({due_till.strftime("%d-%m-%Y")})'
+                else:
+                    due_date = due
+            else:
+                due_date = 'Geen datum.'
+        except (ValueError, IndexError) as e:
+            print(f"Error processing due date for task '{title}': {e}")
+            due_date = 'Onbekende datum.'
 
-    assigned_to_names = [personen.get(user_id, user_id) for user_id in assigned_to_dict.keys()]
-    if voortgang != '100':
-        if plan not in plannen:
-            plannen[plan] = [[title, assigned_to_names, due_date]]
-        else:
-            plannen[plan].append([title, assigned_to_names, due_date])
+        assigned_to_dict = json.loads(assigned_to_json)
+        assigned_to_names = [personen.get(user_id, user_id) for user_id in assigned_to_dict.keys()]
 
-f.write(json.dumps(plannen, indent=4))
-f.close()
+        if voortgang != '100':
+            if plan not in plannen:
+                plannen[plan] = [[title, assigned_to_names, due_date, voortgang]]
+            else:
+                plannen[plan].append([title, assigned_to_names, due_date, voortgang])
+
+    json.dump(plannen, f, indent=4)
+
