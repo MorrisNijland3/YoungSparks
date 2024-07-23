@@ -10,6 +10,7 @@ function fetchAndUpdateData() {
             const projects = Object.keys(data);
 
             const assigneeCounts = {
+                'Niet toegewezen': 0,
                 'Alec van der Schuit': 0,
                 'Amber Schouten': 0,
                 'Daan Bakker': 0,
@@ -27,9 +28,11 @@ function fetchAndUpdateData() {
             };
             const overdueCounts = { ...assigneeCounts };
             const startedCounts = { ...assigneeCounts };
+            const notstartedCounts = { ...assigneeCounts};
             let totalTasks = 0;
             let totalOverdue = 0;
             let totalStarted = 0;
+            let totalNotStarted = 0;
 
             projects.forEach(project => {
                 data[project].forEach(task => {
@@ -39,6 +42,7 @@ function fetchAndUpdateData() {
                     const isOverdue = dueDateStr.startsWith('Te laat.');
                     
                     const isStarted = startedStr === "50";
+                    const isNotStarted = startedStr === "0";
 
                     if (task.length > 1 && Array.isArray(task[1]) && task[1].length > 0) {
                         task[1].forEach(assignee => {
@@ -53,6 +57,10 @@ function fetchAndUpdateData() {
                                     startedCounts[assignee] = (startedCounts[assignee] || 0) + 1;
                                     totalStarted++;
                                 }
+                                if (isNotStarted) {
+                                    notstartedCounts[assignee] = (notstartedCounts[assignee] || 0) + 1;
+                                    totalNotStarted++;
+                                }
                             }
                         });
                     }
@@ -62,6 +70,7 @@ function fetchAndUpdateData() {
             document.getElementById('totalTasks').textContent = totalTasks;
             document.getElementById('totalOverdue').textContent = totalOverdue;
             document.getElementById('totalStarted').textContent = totalStarted;
+                
 
             const tasksCtx = document.getElementById('tasksChart').getContext('2d');
             const projectsCtx = document.getElementById('projectsChart').getContext('2d');
@@ -83,10 +92,16 @@ function fetchAndUpdateData() {
                         borderColor: 'rgba(255, 99, 132, 1)',
                         borderWidth: 1
                     }, {
-                        label: 'Gestart',
+                        label: 'Uitvoeren',
                         data: Object.values(startedCounts),
                         backgroundColor: 'rgba(75, 192, 192, 0.5)',
                         borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }, {
+                        label: 'Niet gestart',
+                        data: Object.values(notstartedCounts),
+                        backgroundColor: 'rgba(255, 206, 86, 0.5)',
+                        borderColor: 'rgba(255, 206, 86, 1)',
                         borderWidth: 1
                     }]
                 },
