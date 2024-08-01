@@ -10,6 +10,7 @@ function fetchAndUpdateData() {
             const projects = Object.keys(data);
 
             const assigneeCounts = {
+                'Niet toegewezen': 0,
                 'Alec van der Schuit': 0,
                 'Amber Schouten': 0,
                 'Daan Bakker': 0,
@@ -43,25 +44,42 @@ function fetchAndUpdateData() {
                     const isStarted = startedStr === "50";
                     const isNotStarted = startedStr === "0";
 
-                    if (task.length > 1 && Array.isArray(task[1]) && task[1].length > 0) {
-                        task[1].forEach(assignee => {
-                            if (typeof assignee === 'string' && assigneeCounts.hasOwnProperty(assignee)) {
-                                assigneeCounts[assignee] = (assigneeCounts[assignee] || 0) + 1;
-                                totalTasks++;
-                                if (isOverdue) {
-                                    overdueCounts[assignee] = (overdueCounts[assignee] || 0) + 1;
-                                    totalOverdue++;
+                    if (task.length > 1 && Array.isArray(task[1])) {
+                        if (task[1].length > 0) {
+                            task[1].forEach(assignee => {
+                                if (typeof assignee === 'string' && assigneeCounts.hasOwnProperty(assignee)) {
+                                    assigneeCounts[assignee]++;
+                                    totalTasks++;
+                                    if (isOverdue) {
+                                        overdueCounts[assignee]++;
+                                        totalOverdue++;
+                                    }
+                                    if (isStarted) {
+                                        startedCounts[assignee]++;
+                                        totalStarted++;
+                                    }
+                                    if (isNotStarted) {
+                                        notstartedCounts[assignee]++;
+                                        totalNotStarted++;
+                                    }
                                 }
-                                if (isStarted) {
-                                    startedCounts[assignee] = (startedCounts[assignee] || 0) + 1;
-                                    totalStarted++;
-                                }
-                                if (isNotStarted) {
-                                    notstartedCounts[assignee] = (notstartedCounts[assignee] || 0) + 1;
-                                    totalNotStarted++;
-                                }
+                            });
+                        } else {
+                            assigneeCounts['Niet toegewezen']++;
+                            totalTasks++;
+                            if (isOverdue) {
+                                overdueCounts['Niet toegewezen']++;
+                                totalOverdue++;
                             }
-                        });
+                            if (isStarted) {
+                                startedCounts['Niet toegewezen']++;
+                                totalStarted++;
+                            }
+                            if (isNotStarted) {
+                                notstartedCounts['Niet toegewezen']++;
+                                totalNotStarted++;
+                            }
+                        }
                     }
                 });
             });
@@ -147,7 +165,7 @@ function fetchAndUpdateData() {
                         x: {
                             title: {
                                 display: true,
-                                text: 'Klanten'
+                                text: 'Projecten'
                             }
                         }
                     }
