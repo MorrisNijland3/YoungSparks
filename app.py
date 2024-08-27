@@ -15,14 +15,11 @@ def serve_static(path):
     return send_from_directory(app.static_folder, path)
 
 def run_flask_app():
-    """Run the Flask app."""
-    app.run(debug=True)  # Adjust debug=True as needed, set to False in production
+    app.run(debug=True, host='0.0.0.0', port=8000)  # Adjust as needed
 
 def main():
-    """Main function to start Flask app and scheduler."""
     # Run the scripts immediately after startup
     run_scripts_immediately()
-
     # Start the scheduler in a separate thread
     scheduler_thread = threading.Thread(target=schedule_periodic_tasks)
     scheduler_thread.start()
@@ -31,8 +28,8 @@ def main():
         # Run the Flask app
         run_flask_app()
     except (KeyboardInterrupt, SystemExit):
-        # Handle graceful shutdown
-        scheduler_thread.join()  # Ensure the scheduler thread is properly shut down
+        scheduler_thread.join()  # Ensure scheduler thread is cleaned up
+        # You might need to add shutdown logic for your scheduler here if necessary
 
 if __name__ == '__main__':
     main()
