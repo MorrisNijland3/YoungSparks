@@ -4,8 +4,10 @@ import os
 import sys
 import logging
 import time
+import datetime
+
 # Set up logging
-logging.basicConfig(level=logging.DEBUG)  # Use DEBUG to capture detailed logs
+logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 scheduler = BackgroundScheduler()
@@ -32,13 +34,22 @@ def run_script(script_name):
 def run_scripts_immediately():
     """Run scripts immediately after startup."""
     logger.info("Running scripts immediately.")
+    # First run file_download.py, then data_conv.py and teamstaken.py
+    run_script('taken_download.py')  # Ensure file_download.py runs before the others
+    time.sleep(60)  # Wait 1 minute before running the next scripts
     run_script('data_conv.py')
     run_script('teamstaken.py')
 
 def schedule_periodic_tasks():
     """Schedule tasks to run every 2 minutes."""
     if not scheduler.running:
-        scheduler.add_job(run_scripts_immediately, 'interval', minutes=2)
+        # Schedule file_download.py to run every 2 minutes
+        scheduler.add_job(run_script, 'interval', hours=2, args=['taken_download.py'], id='taken_download_job')
+
+        # Schedule data_conv.py and teamstaken.py to run every 2 minutes, but with a 1 minute delay
+        scheduler.add_job(run_script, 'interval', hours=2, start_date=datetime.datetime.now() + datetime.timedelta(minutes=1), args=['data_conv.py'], id='data_conv_job')
+        scheduler.add_job(run_script, 'interval', hours=2, start_date=datetime.datetime.now() + datetime.timedelta(minutes=1), args=['teamstaken.py'], id='teamstaken_job')
+        
         scheduler.start()
         logger.info("Scheduler started and periodic tasks are scheduled.")
 
