@@ -5,7 +5,7 @@ import sys
 import logging
 
 # Set up logging
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.DEBUG)  # Use DEBUG to capture detailed logs
 logger = logging.getLogger(__name__)
 
 scheduler = BackgroundScheduler()
@@ -22,13 +22,16 @@ def run_script(script_name):
     script_path = os.path.join(get_script_directory(), script_name)
     try:
         logger.info(f"Executing script: {script_path}")
-        subprocess.run(['python3', script_path], check=True)
+        result = subprocess.run(['python3', script_path], check=True, text=True, capture_output=True)
         logger.info(f"Script {script_path} executed successfully.")
+        logger.debug(f"Script output: {result.stdout}")
     except subprocess.CalledProcessError as e:
         logger.error(f"Error executing script {script_path}: {e}")
+        logger.debug(f"Error output: {e.output}")
 
 def run_scripts_immediately():
     """Run scripts immediately after startup."""
+    logger.info("Running scripts immediately.")
     run_script('data_conv.py')
     run_script('teamstaken.py')
 
@@ -41,8 +44,16 @@ def schedule_periodic_tasks():
 
 def main():
     """Main function to run tasks and start scheduler."""
-    run_scripts_immediately()  # Run scripts immediately after startup
-    schedule_periodic_tasks()  # Schedule tasks every 2 minutes
+    try:
+        run_scripts_immediately()  # Run scripts immediately after startup
+        schedule_periodic_tasks()  # Schedule tasks every 2 minutes
+        logger.info("Scheduler setup complete and scripts running.")
+        # Keep the script running to let the scheduler work
+        while True:
+            time.sleep(60)
+    except Exception as e:
+        logger.error(f"Unhandled exception: {e}")
+        scheduler.shutdown()
 
 if __name__ == "__main__":
     main()
