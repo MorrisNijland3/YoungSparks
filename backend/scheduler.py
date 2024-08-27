@@ -27,31 +27,23 @@ def run_script(script_name):
     except subprocess.CalledProcessError as e:
         logger.error(f"Error executing script {script_path}: {e}")
 
-def restart_service():
-    """Restart the myapp.service."""
-    try:
-        logger.info("Restarting myapp.service")
-        subprocess.run(['sudo', 'systemctl', 'restart', 'myapp.service'], check=True)
-        logger.info("myapp.service restarted successfully.")
-    except subprocess.CalledProcessError as e:
-        logger.error(f"Error restarting myapp.service: {e}")
-
 def run_scripts_immediately():
     """Run scripts immediately after startup."""
     run_script('data_conv.py')
     run_script('teamstaken.py')
 
 def schedule_periodic_tasks():
-    """Schedule tasks to restart the service periodically."""
+    """Schedule tasks to run the scripts periodically."""
     if not scheduler.running:
-        scheduler.add_job(restart_service, 'interval', minutes=2)
+        # Schedule to run scripts every 2 minutes
+        scheduler.add_job(run_scripts_immediately, 'interval', minutes=2, id='run_scripts_job')
         scheduler.start()
-        logger.info("Scheduler started and periodic restart jobs are scheduled.")
+        logger.info("Scheduler started and periodic tasks are scheduled.")
 
 def main():
     """Main function to run tasks and start scheduler."""
     run_scripts_immediately()  # Run scripts immediately after startup
-    schedule_periodic_tasks()  # Schedule service restart every 2 minutes
+    schedule_periodic_tasks()  # Schedule periodic running of scripts
 
 if __name__ == "__main__":
     main()
