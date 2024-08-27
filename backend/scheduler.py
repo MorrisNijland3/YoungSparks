@@ -18,6 +18,7 @@ def get_script_directory():
         return os.path.dirname(os.path.abspath(__file__))
 
 def run_script(script_name):
+    """Execute a script."""
     script_path = os.path.join(get_script_directory(), script_name)
     try:
         logger.info(f"Executing script: {script_path}")
