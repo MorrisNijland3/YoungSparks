@@ -18,12 +18,13 @@ function fetchAndUpdateData() {
                 'Julia van Kalken': 0,
                 'Julia Klaver': 0,
                 'Leonie van der Park': 0,
+                'Mart Cabooter': 0,
                 'Miel Tiebie': 0,
                 'Morris Nijland': 0,
+                'Sharon Swart': 0,
                 'Steijn van Buuren': 0,
                 'Thijmen Buurs': 0,
-                'Tijn de Ruijter': 0,
-                'Sharon Swart': 0
+                'Tijn de Ruijter': 0
             };
             const overdueCounts = { ...assigneeCounts };
             const startedCounts = { ...assigneeCounts };
@@ -35,7 +36,6 @@ function fetchAndUpdateData() {
 
             projects.forEach(project => {
                 data[project].forEach(task => {
-
                     const dueDateStr = task[2];
                     const startedStr = task[3]; 
                     const isOverdue = dueDateStr.startsWith('Te laat.');
@@ -69,90 +69,106 @@ function fetchAndUpdateData() {
             document.getElementById('totalTasks').textContent = totalTasks;
             document.getElementById('totalOverdue').textContent = totalOverdue;
             document.getElementById('totalStarted').textContent = totalStarted;
-                
 
             const tasksCtx = document.getElementById('tasksChart').getContext('2d');
             const projectsCtx = document.getElementById('projectsChart').getContext('2d');
 
-            new Chart(tasksCtx, {
-                type: 'bar',
-                data: {
-                    labels: Object.keys(assigneeCounts),
-                    datasets: [{
-                        label: 'Totaal toegewezen',
-                        data: Object.values(assigneeCounts),
-                        backgroundColor: 'rgba(54, 162, 235, 0.5)',
-                        borderColor: 'rgba(54, 162, 235, 1)',
-                        borderWidth: 1
-                    }, {
-                        label: 'Te laat',
-                        data: Object.values(overdueCounts),
-                        backgroundColor: 'rgba(255, 99, 132, 0.5)',
-                        borderColor: 'rgba(255, 99, 132, 1)',
-                        borderWidth: 1
-                    }, {
-                        label: 'Uitvoeren',
-                        data: Object.values(startedCounts),
-                        backgroundColor: 'rgba(75, 192, 192, 0.5)',
-                        borderColor: 'rgba(75, 192, 192, 1)',
-                        borderWidth: 1
-                    }, {
-                        label: 'Niet gestart',
-                        data: Object.values(notstartedCounts),
-                        backgroundColor: 'rgba(255, 206, 86, 0.5)',
-                        borderColor: 'rgba(255, 206, 86, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            title: {
-                                display: true,
-                                text: 'Hoeveelheid taken'
-                            }
-                        },
-                        x: {
-                            title: {
-                                display: true,
-                                text: 'Personen'
+            // Update the existing charts or create new ones if they don't exist
+            if (window.myChart1) {
+                myChart1.data.labels = Object.keys(assigneeCounts);
+                myChart1.data.datasets[0].data = Object.values(assigneeCounts);
+                myChart1.data.datasets[1].data = Object.values(overdueCounts);
+                myChart1.data.datasets[2].data = Object.values(startedCounts);
+                myChart1.data.datasets[3].data = Object.values(notstartedCounts);
+                myChart1.update();
+            } else {
+                window.myChart1 = new Chart(tasksCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: Object.keys(assigneeCounts),
+                        datasets: [{
+                            label: 'Totaal toegewezen',
+                            data: Object.values(assigneeCounts),
+                            backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1
+                        }, {
+                            label: 'Te laat',
+                            data: Object.values(overdueCounts),
+                            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            borderWidth: 1
+                        }, {
+                            label: 'Uitvoeren',
+                            data: Object.values(startedCounts),
+                            backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        }, {
+                            label: 'Niet gestart',
+                            data: Object.values(notstartedCounts),
+                            backgroundColor: 'rgba(255, 206, 86, 0.5)',
+                            borderColor: 'rgba(255, 206, 86, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Hoeveelheid taken'
+                                }
+                            },
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Personen'
+                                }
                             }
                         }
                     }
-                }
-            });
+                });
+            }
 
-            new Chart(projectsCtx, {
-                type: 'bar',
-                data: {
-                    labels: Object.keys(data),
-                    datasets: [{
-                        label: 'Taken',
-                        data: Object.values(data).map(tasks => tasks.length),
-                        backgroundColor: 'rgba(75, 192, 192, 0.5)',
-                        borderColor: 'rgba(75, 192, 192, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            title: {
-                                display: true,
-                                text: 'Hoeveelheid taken'
-                            }
-                        },
-                        x: {
-                            title: {
-                                display: true,
-                                text: 'Klanten'
+            // Update the projects chart
+            if (window.myChart2) {
+                myChart2.data.labels = Object.keys(data);
+                myChart2.data.datasets[0].data = Object.values(data).map(tasks => tasks.length);
+                myChart2.update();
+            } else {
+                window.myChart2 = new Chart(projectsCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: Object.keys(data),
+                        datasets: [{
+                            label: 'Taken',
+                            data: Object.values(data).map(tasks => tasks.length),
+                            backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Hoeveelheid taken'
+                                }
+                            },
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Klanten'
+                                }
                             }
                         }
                     }
-                }
-            });
+                });
+            }
         })
         .catch(error => {
             console.error('Error fetching or parsing data:', error);
@@ -162,7 +178,6 @@ function fetchAndUpdateData() {
 document.addEventListener('DOMContentLoaded', (event) => {
     fetchAndUpdateData();
 
-    setInterval(() => {
-        location.reload();
-    }, 2 * 60 * 60 * 1000);
+    // Set an interval to update the data every hour (3600000 milliseconds)
+    setInterval(fetchAndUpdateData, 3600000); // Update every hour
 });

@@ -24,22 +24,22 @@ if os.path.exists(json_path):
     with open(json_path) as file:
         reader = json.load(file)
 
-personen = {
-    'b4d1b492-7032-463d-83af-aff06efa96ce': 'Alec van der Schuit',
-    '38c20268-9c11-4f0d-be56-1299263ff655': 'Amber Schouten',
-    'dcb88e06-c81c-4dda-9964-b10c63cebd77': 'Daan Bakker',
-    '413d0ff7-8dcb-420a-ba12-951f36f7d67e': 'Ewout Vet',
-    '993ef9e4-30df-43f2-9dbf-f68f26e3b1fb': 'Jim Struikenkamp',
-    '8f1c96b3-8224-48f7-b4c7-a7e74338dfc8': 'Julia van Kalken',
-    '4282d6cb-daad-438d-b530-4e7bf1b23519': 'Julia Klaver',
-    '5b092ce6-0f82-4b33-aad7-6e3cb6486950': 'Leonie van der Park',
-    '59549484-de76-4dac-90f5-1f09f644bed6': 'Miel Tiebie',
-    '5efa6a82-5942-4dd9-a54e-fa71365e8292': 'Morris Nijland',
-    '99dba567-3892-4236-a695-2e8c0180c197': 'Steijn van Buuren',
-    '5c84a86f-c592-40f1-af8c-d8e7d108e37e': 'Thijmen Buurs',
-    'a1266dc0-cdf5-472c-9f17-2f851ebc2f76': 'Tijn de Ruijter',
-    '4b9ccf8a-a255-4791-9b2a-4442fd1d7e3f': 'Sharon Swart'
-}
+personen = {'b4d1b492-7032-463d-83af-aff06efa96ce' : 'Alec van der Schuit',
+            '38c20268-9c11-4f0d-be56-1299263ff655' : 'Amber Schouten',
+            '229783bd-5be2-4298-a0f1-1ce089b6e621' : 'Daan Bakker',
+            '413d0ff7-8dcb-420a-ba12-951f36f7d67e' : 'Ewout Vet',
+            '993ef9e4-30df-43f2-9dbf-f68f26e3b1fb' : 'Jim Struikenkamp',
+            '8f1c96b3-8224-48f7-b4c7-a7e74338dfc8' : 'Julia van Kalken',
+            '4282d6cb-daad-438d-b530-4e7bf1b23519' : 'Julia Klaver',
+            '5b092ce6-0f82-4b33-aad7-6e3cb6486950' : 'Leonie van der Park',
+            '91ea8c27-b8de-4502-a72a-a195288de3a5' : 'Mart Cabooter',
+            '59549484-de76-4dac-90f5-1f09f644bed6' : 'Miel Tiebie',
+            '5efa6a82-5942-4dd9-a54e-fa71365e8292' : 'Morris Nijland',
+            '4b9ccf8a-a255-4791-9b2a-4442fd1d7e3f' : 'Sharon Swart',
+            '99dba567-3892-4236-a695-2e8c0180c197' : 'Steijn van Buuren',
+            '5c84a86f-c592-40f1-af8c-d8e7d108e37e' : 'Thijmen Buurs',
+            'a1266dc0-cdf5-472c-9f17-2f851ebc2f76' : 'Tijn de Ruijter'
+}       # personen met hun teams id
 
 for werknemer in personen:
     index = 1
