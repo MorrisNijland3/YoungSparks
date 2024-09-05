@@ -3,7 +3,7 @@ import os
 import sys
 import json
 
-url = 'https://youngsparks.sharepoint.com/:u:/s/YoungSparksintern/EfaANmPQWrJPhArpcb19-v4BCK8VIpXoxhWWrfsIw23Vdg?e=z0HuJn&download=1'
+url = 'https://youngsparks.sharepoint.com/:u:/s/YoungSparksklant/EfaANmPQWrJPhArpcb19-v4BCK8VIpXoxhWWrfsIw23Vdg?e=z0HuJn&download=1'
 filename = 'taken.json'
 
 def get_script_directory():
