@@ -73,7 +73,6 @@ function fetchAndUpdateData() {
             const tasksCtx = document.getElementById('tasksChart').getContext('2d');
             const projectsCtx = document.getElementById('projectsChart').getContext('2d');
 
-            // Update the existing charts or create new ones if they don't exist
             if (window.myChart1) {
                 myChart1.data.labels = Object.keys(assigneeCounts);
                 myChart1.data.datasets[0].data = Object.values(assigneeCounts);
@@ -178,6 +177,5 @@ function fetchAndUpdateData() {
 document.addEventListener('DOMContentLoaded', (event) => {
     fetchAndUpdateData();
 
-    // Set an interval to update the data every hour (3600000 milliseconds)
-    setInterval(fetchAndUpdateData, 3600000); // Update every hour
+    setInterval(fetchAndUpdateData, 3600000); 
 });
