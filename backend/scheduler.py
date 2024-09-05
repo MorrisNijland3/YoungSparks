@@ -41,10 +41,10 @@ def run_scripts_immediately():
 def schedule_periodic_tasks():
     """Schedule tasks to run every 2 minutes."""
     if not scheduler.running:
-        scheduler.add_job(run_script, 'interval', hours=1, args=['taken_download.py'], id='taken_download_job')
+        scheduler.add_job(run_script, 'interval', hours=2, args=['taken_download.py'], id='taken_download_job')
 
-        scheduler.add_job(run_script, 'interval', hours=1, start_date=datetime.datetime.now() + datetime.timedelta(minutes=1), args=['data_conv.py'], id='data_conv_job')
-        scheduler.add_job(run_script, 'interval', hours=1, start_date=datetime.datetime.now() + datetime.timedelta(minutes=1), args=['teamstaken.py'], id='teamstaken_job')
+        scheduler.add_job(run_script, 'interval', minutes=2, start_date=datetime.datetime.now() + datetime.timedelta(minutes=1), args=['data_conv.py'], id='data_conv_job')
+        scheduler.add_job(run_script, 'interval', hours=2, start_date=datetime.datetime.now() + datetime.timedelta(minutes=1), args=['teamstaken.py'], id='teamstaken_job')
         
         scheduler.start()
         logger.info("Scheduler started and periodic tasks are scheduled.")
