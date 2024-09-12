@@ -69,6 +69,7 @@ function fetchAndUpdateData() {
             document.getElementById('totalTasks').textContent = totalTasks;
             document.getElementById('totalOverdue').textContent = totalOverdue;
             document.getElementById('totalStarted').textContent = totalStarted;
+            document.getElementById('totalNotStarted').textContent = totalNotStarted;
 
             const tasksCtx = document.getElementById('tasksChart').getContext('2d');
             const projectsCtx = document.getElementById('projectsChart').getContext('2d');
@@ -131,6 +132,7 @@ function fetchAndUpdateData() {
                 });
             }
 
+
             if (window.myChart2) {
                 myChart2.data.labels = Object.keys(data);
                 myChart2.data.datasets[0].data = Object.values(data).map(tasks => tasks.length);
@@ -175,6 +177,6 @@ function fetchAndUpdateData() {
 
 document.addEventListener('DOMContentLoaded', (event) => {
     fetchAndUpdateData();
-
+ // 3600000
     setInterval(fetchAndUpdateData, 3600000); 
 });
