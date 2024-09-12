@@ -181,5 +181,5 @@ function fetchAndUpdateData() {
 
 document.addEventListener('DOMContentLoaded', (event) => {
     fetchAndUpdateData();
-    setInterval(fetchAndUpdateData, 1800000); // Every half an hour
+    setInterval(fetchAndUpdateData, 900000); // Every 15 minutes
 });

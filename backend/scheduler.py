@@ -42,7 +42,6 @@ def schedule_periodic_tasks():
     """Schedule tasks to run every 2 minutes."""
     if not scheduler.running:
         scheduler.add_job(run_script, 'interval', hours=1, args=['taken_download.py'], id='taken_download_job')
-
         scheduler.add_job(run_script, 'interval', hours=1, start_date=datetime.datetime.now() + datetime.timedelta(minutes=1), args=['data_conv.py'], id='data_conv_job')
         scheduler.add_job(run_script, 'interval', hours=1, start_date=datetime.datetime.now() + datetime.timedelta(minutes=2), args=['teamstaken.py'], id='teamstaken_job')
         
