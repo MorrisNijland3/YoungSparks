@@ -98,7 +98,6 @@
         [
             "Social media templates voor CREO",
             [
-                "Ewout Vet",
                 "Sharon Swart"
             ],
             "2024-09-17T10:00:00Z",
@@ -125,9 +124,10 @@
             [
                 "Amber Schouten",
                 "Alec van der Schuit",
-                "Sharon Swart"
+                "Sharon Swart",
+                "Daan Bakker"
             ],
-            "2024-09-18T10:00:00Z",
+            "2024-09-16T10:00:00Z",
             "50"
         ],
         [
@@ -141,10 +141,9 @@
         [
             "SEA opbouwen",
             [
-                "Steijn van Buuren",
-                "Ewout Vet"
+                "Steijn van Buuren"
             ],
-            "2024-09-12T10:00:00Z",
+            "2024-09-13T10:00:00Z",
             "0"
         ],
         [
@@ -153,14 +152,6 @@
                 "Daan Bakker"
             ],
             "2024-09-19T10:00:00Z",
-            "0"
-        ],
-        [
-            "TEMPLATE CAMPAGNE",
-            [
-                "Leonie van der Park"
-            ],
-            "2024-09-25T10:00:00Z",
             "0"
         ],
         [
@@ -202,37 +193,25 @@
             "0"
         ],
         [
-            "WEBSITE VERBETERINGEN - 2 UUR ",
-            [
-                "Leonie van der Park"
-            ],
-            "2024-09-16T10:00:00Z",
-            "0"
-        ],
-        [
-            "MAANDMEETING:  12 september - 13.30",
+            "MAANDMEETING:  10 OKTOBER - 10:00",
             [
                 "Leonie van der Park",
                 "Steijn van Buuren",
                 "Ewout Vet",
                 "Sharon Swart"
             ],
-            "2024-09-12T10:00:00Z",
+            "2024-10-10T10:00:00Z",
             "0"
         ],
         [
             "GolfJoy - Campagne uitdenken",
-            [
-                "Leonie van der Park"
-            ],
+            [],
             "Geen datum.",
             "0"
         ],
         [
             "Videowall - pagina en content maken",
-            [
-                "Leonie van der Park"
-            ],
+            [],
             "Geen datum.",
             "0"
         ],
@@ -255,7 +234,7 @@
             [
                 "Thijmen Buurs"
             ],
-            "Te laat.(29-08-2024)",
+            "2024-09-12T10:00:00Z",
             "0"
         ],
         [
@@ -285,7 +264,7 @@
             [
                 "Leonie van der Park"
             ],
-            "Te laat.(04-09-2024)",
+            "2024-09-30T10:00:00Z",
             "50"
         ],
         [
@@ -299,7 +278,7 @@
             [
                 "Sharon Swart"
             ],
-            "2024-09-12T10:00:00Z",
+            "2024-09-17T10:00:00Z",
             "50"
         ],
         [
@@ -307,7 +286,7 @@
             [
                 "Sharon Swart"
             ],
-            "2024-09-12T10:00:00Z",
+            "2024-09-17T10:00:00Z",
             "0"
         ],
         [
@@ -315,7 +294,7 @@
             [
                 "Sharon Swart"
             ],
-            "2024-09-12T10:00:00Z",
+            "2024-09-17T10:00:00Z",
             "0"
         ],
         [
@@ -355,7 +334,7 @@
                 "Ewout Vet",
                 "Daan Bakker"
             ],
-            "2024-09-12T10:00:00Z",
+            "2024-09-16T10:00:00Z",
             "0"
         ],
         [
@@ -387,7 +366,7 @@
             [
                 "Leonie van der Park"
             ],
-            "Te laat.(05-09-2024)",
+            "2024-09-23T10:00:00Z",
             "50"
         ],
         [
@@ -402,14 +381,12 @@
                 "Ewout Vet",
                 "Daan Bakker"
             ],
-            "2024-09-16T10:00:00Z",
+            "2024-09-19T10:00:00Z",
             "50"
         ],
         [
             "ONTWERP EMAIL HANDTEKENING (3) - 3 UUR",
-            [
-                "Leonie van der Park"
-            ],
+            [],
             "2024-09-23T10:00:00Z",
             "50"
         ],
@@ -426,7 +403,7 @@
             [
                 "Leonie van der Park"
             ],
-            "Te laat.(09-09-2024)",
+            "2024-09-30T10:00:00Z",
             "50"
         ],
         [
@@ -517,7 +494,7 @@
             [
                 "Daan Bakker"
             ],
-            "2024-09-12T10:00:00Z",
+            "2024-09-16T10:00:00Z",
             "50"
         ],
         [
@@ -661,7 +638,7 @@
             [
                 "Daan Bakker"
             ],
-            "2024-09-12T10:00:00Z",
+            "2024-09-16T10:00:00Z",
             "50"
         ],
         [
@@ -694,7 +671,7 @@
                 "Sharon Swart",
                 "Julia van Kalken"
             ],
-            "Te laat.(11-09-2024)",
+            "2024-09-17T10:00:00Z",
             "50"
         ],
         [
@@ -776,7 +753,7 @@
             [
                 "Daan Bakker"
             ],
-            "2024-09-12T10:00:00Z",
+            "2024-09-16T10:00:00Z",
             "50"
         ],
         [
@@ -969,6 +946,16 @@
     ],
     "Grootmeesters": [
         [
+            "AI / Automation project - DGM",
+            [
+                "Leonie van der Park",
+                "Steijn van Buuren",
+                "Morris Nijland"
+            ],
+            "Geen datum.",
+            "0"
+        ],
+        [
             "SEA PVA",
             [],
             "2024-09-30T10:00:00Z",
@@ -1006,10 +993,8 @@
         ],
         [
             "ALG - OVERZICHT UREN + CONTACTGEGEVENS",
-            [
-                "Leonie van der Park"
-            ],
-            "Te laat.(04-09-2024)",
+            [],
+            "2024-09-16T10:00:00Z",
             "0"
         ],
         [
@@ -1370,7 +1355,7 @@
             [
                 "Sharon Swart"
             ],
-            "2024-09-12T10:00:00Z",
+            "2024-09-17T10:00:00Z",
             "0"
         ],
         [
@@ -1406,7 +1391,7 @@
             [
                 "Sharon Swart"
             ],
-            "2024-09-12T10:00:00Z",
+            "2024-09-17T10:00:00Z",
             "50"
         ],
         [
@@ -1660,12 +1645,20 @@
     ],
     "Euroline": [
         [
+            "META check",
+            [
+                "Daan Bakker"
+            ],
+            "2024-09-19T10:00:00Z",
+            "0"
+        ],
+        [
             "SEA - Marktplaatscampagne",
             [
                 "Daan Bakker"
             ],
             "2024-09-16T10:00:00Z",
-            "0"
+            "50"
         ],
         [
             "SEA - accountverificatie",
@@ -1688,7 +1681,7 @@
             [
                 "Miel Tiebie"
             ],
-            "2024-09-16T10:00:00Z",
+            "2024-10-01T10:00:00Z",
             "0"
         ],
         [
@@ -1734,7 +1727,7 @@
             [
                 "Miel Tiebie"
             ],
-            "Te laat.(06-09-2024)",
+            "2024-09-13T10:00:00Z",
             "50"
         ],
         [
@@ -1742,7 +1735,7 @@
             [
                 "Miel Tiebie"
             ],
-            "2024-09-30T10:00:00Z",
+            "2024-09-20T10:00:00Z",
             "50"
         ],
         [
@@ -1796,7 +1789,7 @@
                 "Sharon Swart",
                 "Julia van Kalken"
             ],
-            "2024-09-12T10:00:00Z",
+            "2024-09-17T10:00:00Z",
             "50"
         ],
         [
@@ -1812,7 +1805,7 @@
             [
                 "Sharon Swart"
             ],
-            "2024-09-12T10:00:00Z",
+            "2024-09-17T10:00:00Z",
             "50"
         ],
         [
@@ -2210,20 +2203,20 @@
             "0"
         ],
         [
+            "ADVERTENTIE LINKE LOETJE (krantje)",
+            [
+                "Jim Struikenkamp"
+            ],
+            "2024-09-27T10:00:00Z",
+            "0"
+        ],
+        [
             "Website ",
             [
                 "Miel Tiebie"
             ],
             "2024-09-19T10:00:00Z",
             "0"
-        ],
-        [
-            "Update algemene voorwaarden",
-            [
-                "Miel Tiebie"
-            ],
-            "Te laat.(11-09-2024)",
-            "50"
         ],
         [
             "ANALYSE & RAPPORTAGE",
@@ -2325,7 +2318,7 @@
                 "Leonie van der Park",
                 "Sharon Swart"
             ],
-            "2024-09-12T10:00:00Z",
+            "2024-09-17T10:00:00Z",
             "50"
         ],
         [
@@ -2392,8 +2385,10 @@
         ],
         [
             "CANVA INRICHTEN",
-            [],
-            "Geen datum.",
+            [
+                "Thijmen Buurs"
+            ],
+            "2024-09-13T10:00:00Z",
             "0"
         ],
         [
@@ -2468,9 +2463,9 @@
         [
             "PROFIEL OPBOUWEN - OPTIMALISATIE",
             [
-                "Amber Schouten"
+                "Thijmen Buurs"
             ],
-            "2024-09-12T10:00:00Z",
+            "2024-09-13T10:00:00Z",
             "0"
         ]
     ],
@@ -4321,7 +4316,7 @@
                 "Leonie van der Park",
                 "Daan Bakker"
             ],
-            "2024-09-12T10:00:00Z",
+            "2024-09-16T10:00:00Z",
             "50"
         ],
         [
@@ -4359,7 +4354,7 @@
                 "Ewout Vet",
                 "Daan Bakker"
             ],
-            "2024-09-12T10:00:00Z",
+            "2024-09-16T10:00:00Z",
             "50"
         ],
         [
@@ -4544,7 +4539,7 @@
             [
                 "Sharon Swart"
             ],
-            "2024-09-12T10:00:00Z",
+            "2024-09-17T10:00:00Z",
             "0"
         ],
         [
@@ -4576,7 +4571,7 @@
             [
                 "Sharon Swart"
             ],
-            "2024-09-12T10:00:00Z",
+            "2024-09-19T10:00:00Z",
             "0"
         ],
         [
@@ -4640,12 +4635,20 @@
     ],
     "Bedrijvenvereniging Boekelermeer": [
         [
-            "Update website met evenement",
+            "Werking Elementor",
+            [
+                "Sharon Swart"
+            ],
+            "2024-09-26T10:00:00Z",
+            "0"
+        ],
+        [
+            "Routing nieuwe leden maken",
             [
                 "Miel Tiebie"
             ],
-            "Te laat.(11-09-2024)",
-            "50"
+            "2024-09-19T10:00:00Z",
+            "0"
         ],
         [
             "Artikel Kijk op NH",
@@ -4653,14 +4656,6 @@
                 "Miel Tiebie"
             ],
             "2024-09-17T10:00:00Z",
-            "50"
-        ],
-        [
-            "bedrijfsbezoek bij Plymovement",
-            [
-                "Miel Tiebie"
-            ],
-            "Te laat.(11-09-2024)",
             "50"
         ],
         [
@@ -4714,7 +4709,7 @@
         [
             "3. CONTENT PLANNER INVULLEN",
             [
-                "Sharon Swart"
+                "Julia van Kalken"
             ],
             "2024-09-12T10:00:00Z",
             "50"
@@ -4856,7 +4851,7 @@
             [
                 "Leonie van der Park"
             ],
-            "Te laat.(10-09-2024)",
+            "2024-09-16T10:00:00Z",
             "0"
         ],
         [
@@ -5334,10 +5329,8 @@
         ],
         [
             "1. ANALYSE & RAPPORTAGE",
-            [
-                "Thijmen Buurs"
-            ],
-            "Te laat.(29-08-2024)",
+            [],
+            "2024-09-12T10:00:00Z",
             "50"
         ],
         [
@@ -5351,13 +5344,12 @@
             [
                 "Julia van Kalken"
             ],
-            "Te laat.(05-09-2024)",
+            "2024-09-12T10:00:00Z",
             "50"
         ],
         [
             "4. CONTENT SHOOT - AANLEVERING",
             [
-                "Mart Cabooter",
                 "Julia van Kalken"
             ],
             "2024-09-12T10:00:00Z",
@@ -5447,7 +5439,7 @@
                 "Thijmen Buurs",
                 "Sharon Swart"
             ],
-            "2024-09-12T10:00:00Z",
+            "2024-09-13T10:00:00Z",
             "50"
         ],
         [
@@ -5717,7 +5709,7 @@
             [
                 "Daan Bakker"
             ],
-            "2024-09-12T10:00:00Z",
+            "2024-09-16T10:00:00Z",
             "50"
         ],
         [
@@ -5893,7 +5885,7 @@
             [
                 "Sharon Swart"
             ],
-            "2024-09-12T10:00:00Z",
+            "2024-10-10T10:00:00Z",
             "0"
         ],
         [
@@ -5902,7 +5894,7 @@
                 "Ewout Vet",
                 "Sharon Swart"
             ],
-            "2024-09-12T10:00:00Z",
+            "2024-10-10T10:00:00Z",
             "0"
         ],
         [
@@ -5917,9 +5909,10 @@
             "Meta advertising opzetten 6 tot 8 uur",
             [
                 "Leonie van der Park",
+                "Steijn van Buuren",
                 "Daan Bakker"
             ],
-            "2024-09-12T10:00:00Z",
+            "2024-09-16T10:00:00Z",
             "50"
         ],
         [
@@ -5974,14 +5967,6 @@
             "CONCURRENTEN",
             [],
             "Geen datum.",
-            "0"
-        ],
-        [
-            "ONBOARDING KLANTEN ADMIN",
-            [
-                "Leonie van der Park"
-            ],
-            "Te laat.(05-09-2024)",
             "0"
         ],
         [
@@ -6291,12 +6276,10 @@
         [
             "PROCES & WERKINSTRUCTIES",
             [
-                "Leonie van der Park",
-                "Ewout Vet",
-                "Daan Bakker"
+                "Leonie van der Park"
             ],
-            "2024-09-12T10:00:00Z",
-            "50"
+            "2024-09-13T10:00:00Z",
+            "0"
         ],
         [
             "PERSONEEL INFO",
@@ -6358,7 +6341,7 @@
                 "Amber Schouten",
                 "Leonie van der Park"
             ],
-            "Geen datum.",
+            "Te laat.(09-09-2024)",
             "0"
         ],
         [
@@ -6434,7 +6417,7 @@
             [
                 "Leonie van der Park"
             ],
-            "Te laat.(09-09-2024)",
+            "2024-09-16T10:00:00Z",
             "0"
         ],
         [
@@ -6445,8 +6428,10 @@
         ],
         [
             "CANVA INRICHTEN",
-            [],
-            "Geen datum.",
+            [
+                "Thijmen Buurs"
+            ],
+            "2024-09-13T10:00:00Z",
             "0"
         ],
         [
@@ -6474,7 +6459,7 @@
             [
                 "Ewout Vet"
             ],
-            "Te laat.(09-09-2024)",
+            "2024-09-13T10:00:00Z",
             "50"
         ],
         [
@@ -6491,7 +6476,7 @@
                 "Leonie van der Park",
                 "Ewout Vet"
             ],
-            "Te laat.(09-09-2024)",
+            "2024-09-13T10:00:00Z",
             "0"
         ],
         [
@@ -6513,8 +6498,16 @@
             [
                 "Sharon Swart"
             ],
-            "2024-09-12T10:00:00Z",
-            "0"
+            "2024-09-24T10:00:00Z",
+            "50"
+        ],
+        [
+            "WEBSITE ONDERHOUD",
+            [
+                "Sharon Swart"
+            ],
+            "2024-09-24T10:00:00Z",
+            "50"
         ],
         [
             "E-MAIL OPSTELLEN - X UUR - AFTER DEMOLITION DAY",
@@ -6524,14 +6517,6 @@
             ],
             "2024-09-26T10:00:00Z",
             "0"
-        ],
-        [
-            "PERSBERICHT",
-            [
-                "Miel Tiebie"
-            ],
-            "2024-09-12T10:00:00Z",
-            "50"
         ],
         [
             "MAANDELIJKSE CYCLUS VAN INTERNE EN EXTERNE AFSPRAKEN INPLANNEN",
@@ -6563,7 +6548,7 @@
                 "Miel Tiebie"
             ],
             "2024-09-16T10:00:00Z",
-            "0"
+            "50"
         ],
         [
             "ANALYSE & RAPPORTAGE",
@@ -6600,7 +6585,7 @@
             [
                 "Sharon Swart"
             ],
-            "2024-09-12T10:00:00Z",
+            "2024-09-17T10:00:00Z",
             "50"
         ],
         [
@@ -6614,7 +6599,7 @@
             [
                 "Sharon Swart"
             ],
-            "Te laat.(10-09-2024)",
+            "2024-09-17T10:00:00Z",
             "50"
         ],
         [
@@ -6634,7 +6619,7 @@
             [
                 "Jim Struikenkamp"
             ],
-            "Te laat.(10-09-2024)",
+            "2024-09-12T10:00:00Z",
             "50"
         ],
         [
