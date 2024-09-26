@@ -1,5 +1,8 @@
+
+
 html, body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Use your preferred font */
+    background-color: #f4f4f4; /* Background for the body */
     margin: 0;
     padding: 0;
     height: 100%;
@@ -18,12 +21,14 @@ header {
 }
 
 .footer {
-    background-color: #000000;
+    background-color: #333;
     color: #ffffff;
     text-align: center;
-    padding: 1em 0;
+    padding: 20px;
+    margin-top: auto; /* Ensures footer stays at the bottom */
 }
 
+/* Menu Icon */
 .menu-icon {
     cursor: pointer;
     font-size: 50px;
@@ -35,6 +40,7 @@ header {
     transition: left 0.3s ease;
 }
 
+/* Navbar Styles */
 .navbar {
     position: fixed;
     top: 0;
@@ -79,7 +85,6 @@ body.navbar-open .content {
 .navbar__item {
     margin: 10px 0;
     padding: 10px 0; 
-
 }
 
 .navbar__link {
@@ -96,6 +101,43 @@ body.navbar-open .content {
     background-color: #555; 
 }
 
+/* Team Section */
+.team {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 40px;
+    text-align: center;
+    background-color: white;
+}
+
+.team-member {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.team-member h3 {
+    font-size: 1.2em;
+    color: #fc4c14;
+    margin-bottom: 5px;
+}
+
+.team-member p {
+    font-size: 1em;
+    color: #333;
+}
+
+/* Chart Styles */
 .chart-container {
     display: flex;
     flex-direction: column;
