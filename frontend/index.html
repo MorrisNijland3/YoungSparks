@@ -7,6 +7,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YoungSparks</title>
+    <style>
+        .content {
+            display: flex;
+            align-items: flex-start; 
+        }
+
+        .text-section {
+            flex: 1; 
+            margin-right: 20px; 
+        }
+
+        .image-section {
+            flex: 1;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -22,21 +42,32 @@
                 <li class="navbar__item">
                     <a href="download-excel.html" class="navbar__link"><span>Download Excel</span></a>
                 </li>
+                <li class="navbar__item">
+                    <a href="team.html" class="navbar__link"><span>Het team</span></a>
+                </li>
             </ul>
+        </nav>
     </header>
+
     <div class="content">
-        <main>
-            <h2>Het Dashboard</h2>
-            <p>Op dit dashboard kan je alle informatie betreft de voortgang van de taken zien.</p>
-            <h2>Features:</h2>
-            <ul>
-                <li>Status van alle resterende taken.</li>
-                <li>Ranglijst taken van personen.</li>
-                <li>Taken per klant.</li>
-            </ul>
-        </main>
+        <div class="text-section">
+            <main>
+                <h2>Het Dashboard</h2>
+                <p>Op dit dashboard kan je alle informatie betreft de voortgang van de taken zien.</p>
+                <h2>Features:</h2>
+                <ul>
+                    <li>Status van alle resterende taken.</li>
+                    <li>Ranglijst taken van personen.</li>
+                    <li>Taken per klant.</li>
+                </ul>
+            </main>
+        </div>
+
+        <div class="image-section">
+            <img src="images/youngsparks.jpeg" alt="YoungSparks">
+        </div>
     </div>
-    
+
     <footer class="footer">
         <p>&copy; YoungSparks 2024</p>
     </footer>
