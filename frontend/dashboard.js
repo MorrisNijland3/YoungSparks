@@ -15,9 +15,7 @@ function fetchEmployeeData() {
 }
 
 function fetchAndUpdateData() {
-    // First, fetch the employee data
     fetchEmployeeData().then(assigneeCounts => {
-        // Initialize other counts based on fetched names
         const overdueCounts = { ...assigneeCounts };
         const startedCounts = { ...assigneeCounts };
         const notstartedCounts = { ...assigneeCounts };
@@ -26,7 +24,6 @@ function fetchAndUpdateData() {
         let totalStarted = 0;
         let totalNotStarted = 0;
 
-        // Now, fetch the dashboard.json data
         fetch('dashboard.json')
             .then(response => {
                 if (!response.ok) {
@@ -181,5 +178,5 @@ function fetchAndUpdateData() {
 
 document.addEventListener('DOMContentLoaded', (event) => {
     fetchAndUpdateData();
-    setInterval(fetchAndUpdateData, 900000); // Every 15 minutes
+    setInterval(fetchAndUpdateData, 900000); // Every 15 minutes 30000
 });
