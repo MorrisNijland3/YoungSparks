@@ -58,7 +58,7 @@ def schedule_periodic_tasks():
         scheduler.add_job(run_script, 'interval', hours=1, start_date=datetime.datetime.now() + datetime.timedelta(minutes=2), args=['teamstaken.py'], id='teamstaken_job')
         
         # Schedule daily reboot at 11 PM
-        scheduler.add_job(reboot_raspberry_pi, 'cron', hour=16, minute=35, id='reboot_job')
+        scheduler.add_job(reboot_raspberry_pi, 'cron', hour=23, minute=00, id='reboot_job')
 
         scheduler.start()
         logger.info("Scheduler started and periodic tasks are scheduled.")
