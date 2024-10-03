@@ -37,32 +37,27 @@ function fetchAndUpdateData() {
 
                 projects.forEach(project => {
                     data[project].forEach(task => {
-                        const dueDateStr = task[2];  // Field with due date or "Geen datum."
-                        const startedStr = task[3];  // Field with task status (e.g., "50" or "0")
+                        const dueDateStr = task[2];
+                        const startedStr = task[3];
                         
-                        // Only proceed if the task has a valid due date
                         if (dueDateStr !== 'Geen datum.') {
-                            totalTasks++;  // Count total tasks
+                            totalTasks++;
 
-                            // Check if the task is overdue
                             const isOverdue = dueDateStr.startsWith('Te laat.');
                             if (isOverdue) {
-                                totalOverdue++;  // Count total overdue tasks
+                                totalOverdue++;
                             }
 
-                            // Check if the task is started
                             const isStarted = startedStr === "50";
                             if (isStarted) {
-                                totalStarted++;  // Count total started tasks
+                                totalStarted++;
                             }
 
-                            // Check if the task is not started
                             const isNotStarted = startedStr === "0";
                             if (isNotStarted) {
-                                totalNotStarted++;  // Count total not started tasks
+                                totalNotStarted++;
                             }
 
-                            // Assign tasks to employees and update counts per employee
                             if (task.length > 1 && Array.isArray(task[1]) && task[1].length > 0) {
                                 task[1].forEach(assignee => {
                                     if (typeof assignee === 'string' && assigneeCounts.hasOwnProperty(assignee)) {
@@ -84,26 +79,24 @@ function fetchAndUpdateData() {
                     });
                 });
 
-                // Update the UI totals
                 document.getElementById('totalTasks').textContent = totalTasks;
                 document.getElementById('totalOverdue').textContent = totalOverdue;
                 document.getElementById('totalStarted').textContent = totalStarted;
                 document.getElementById('totalNotStarted').textContent = totalNotStarted;
 
-                // Update the tasks chart
                 const tasksCtx = document.getElementById('tasksChart').getContext('2d');
                 if (window.myChart1) {
                     myChart1.data.labels = Object.keys(assigneeCounts);
-                    myChart1.data.datasets[0].data = Object.values(assigneeCounts);  // Total tasks per employee
-                    myChart1.data.datasets[1].data = Object.values(overdueCounts);   // Overdue tasks per employee
-                    myChart1.data.datasets[2].data = Object.values(startedCounts);   // Started tasks per employee
-                    myChart1.data.datasets[3].data = Object.values(notStartedCounts);  // Not started tasks per employee
+                    myChart1.data.datasets[0].data = Object.values(assigneeCounts);
+                    myChart1.data.datasets[1].data = Object.values(overdueCounts);
+                    myChart1.data.datasets[2].data = Object.values(startedCounts);
+                    myChart1.data.datasets[3].data = Object.values(notStartedCounts);
                     myChart1.update();
                 } else {
                     window.myChart1 = new Chart(tasksCtx, {
                         type: 'bar',
                         data: {
-                            labels: Object.keys(assigneeCounts),  // Employee names
+                            labels: Object.keys(assigneeCounts),
                             datasets: [{
                                 label: 'Totaal toegewezen',
                                 data: Object.values(assigneeCounts),
@@ -150,11 +143,10 @@ function fetchAndUpdateData() {
                     });
                 }
 
-                // Update the projects chart
                 const projectsCtx = document.getElementById('projectsChart').getContext('2d');
                 if (window.myChart2) {
                     myChart2.data.labels = Object.keys(data);
-                    myChart2.data.datasets[0].data = Object.values(data).map(tasks => tasks.length);  // Number of tasks per project
+                    myChart2.data.datasets[0].data = Object.values(data).map(tasks => tasks.length);
                     myChart2.update();
                 } else {
                     window.myChart2 = new Chart(projectsCtx, {
@@ -197,5 +189,5 @@ function fetchAndUpdateData() {
 
 document.addEventListener('DOMContentLoaded', (event) => {
     fetchAndUpdateData();
-    setInterval(fetchAndUpdateData, 900000); // Refresh every 15 minutes
+    setInterval(fetchAndUpdateData, 900000);
 });
