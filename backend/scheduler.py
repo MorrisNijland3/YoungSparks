@@ -38,26 +38,25 @@ def run_scripts_immediately():
     run_script('data_conv.py')
     run_script('teamstaken.py')
 
-def run_terminal_command():
-    """Run a terminal command (e.g., sudo reboot)."""
-    command = "sudo reboot"
+def reboot_raspberry_pi():
+    """Reboot the Raspberry Pi."""
     try:
-        logger.info(f"Executing terminal command: {command}")
-        result = subprocess.run(command, shell=True, check=True, text=True, capture_output=True)
-        logger.info(f"Command executed successfully: {result.stdout}")
-    except subprocess.CalledProcessError as e:
-        logger.error(f"Error executing command {command}: {e}")
-        logger.debug(f"Error output: {e.output}")
+        logger.info("Rebooting Raspberry Pi...")
+        os.system('sudo shutdown -r now')
+    except Exception as e:
+        logger.error(f"Failed to reboot: {e}")
+
 
 def schedule_periodic_tasks():
-    """Schedule tasks to run every 2 minutes."""
+    """Schedule tasks to run every 2 minutes and daily reboot at 11 PM."""
     if not scheduler.running:
+        # Scheduling tasks every hour
         scheduler.add_job(run_script, 'interval', hours=1, args=['taken_download.py'], id='taken_download_job')
         scheduler.add_job(run_script, 'interval', hours=1, start_date=datetime.datetime.now() + datetime.timedelta(minutes=1), args=['data_conv.py'], id='data_conv_job')
         scheduler.add_job(run_script, 'interval', hours=1, start_date=datetime.datetime.now() + datetime.timedelta(minutes=2), args=['teamstaken.py'], id='teamstaken_job')
-
-        # Schedule a terminal command to run daily at 11 PM
-        scheduler.add_job(run_terminal_command, 'cron', hour=15, minute=20, id='daily_reboot_command')
+        
+        # Schedule daily reboot at 11 PM
+        scheduler.add_job(reboot_raspberry_pi, 'cron', hour=15, minute=30, id='reboot_job')
 
         scheduler.start()
         logger.info("Scheduler started and periodic tasks are scheduled.")
