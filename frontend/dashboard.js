@@ -18,7 +18,8 @@ function fetchAndUpdateData() {
     fetchEmployeeData().then(assigneeCounts => {
         const overdueCounts = { ...assigneeCounts };
         const startedCounts = { ...assigneeCounts };
-        const notstartedCounts = { ...assigneeCounts };
+        const notStartedCounts = { ...assigneeCounts };
+
         let totalTasks = 0;
         let totalOverdue = 0;
         let totalStarted = 0;
@@ -36,29 +37,46 @@ function fetchAndUpdateData() {
 
                 projects.forEach(project => {
                     data[project].forEach(task => {
-                        const dueDateStr = task[2];
-                        const startedStr = task[3]; 
-                        const isOverdue = dueDateStr.startsWith('Te laat.');
+                        const dueDateStr = task[2];  // Field with due date or "Geen datum."
+                        const startedStr = task[3];  // Field with task status (e.g., "50" or "0")
                         
-                        const isStarted = startedStr === "50";
-                        const isNotStarted = startedStr === "0";
+                        // If the task has a valid due date
+                        if (dueDateStr !== 'Geen datum.') {
+                            totalTasks++;  // Count total tasks
+                        }
 
+                        // Check if the task is overdue
+                        const isOverdue = dueDateStr.startsWith('Te laat.');
+                        if (isOverdue) {
+                            totalOverdue++;  // Count total overdue tasks
+                        }
+
+                        // Check if the task is started
+                        const isStarted = startedStr === "50" && dueDateStr !== 'Geen datum.';
+                        if (isStarted) {
+                            totalStarted++;  // Count total started tasks
+                        }
+
+                        // Check if the task is not started
+                        const isNotStarted = startedStr === "0" && dueDateStr !== 'Geen datum.';
+                        if (isNotStarted) {
+                            totalNotStarted++;  // Count total not started tasks
+                        }
+
+                        // Assign tasks to employees and update counts per employee
                         if (task.length > 1 && Array.isArray(task[1]) && task[1].length > 0) {
                             task[1].forEach(assignee => {
                                 if (typeof assignee === 'string' && assigneeCounts.hasOwnProperty(assignee)) {
                                     assigneeCounts[assignee] += 1;
-                                    totalTasks++;
+
                                     if (isOverdue) {
                                         overdueCounts[assignee] += 1;
-                                        totalOverdue++;
                                     }
                                     if (isStarted) {
                                         startedCounts[assignee] += 1;
-                                        totalStarted++;
                                     }
                                     if (isNotStarted) {
-                                        notstartedCounts[assignee] += 1;
-                                        totalNotStarted++;
+                                        notStartedCounts[assignee] += 1;
                                     }
                                 }
                             });
@@ -66,27 +84,26 @@ function fetchAndUpdateData() {
                     });
                 });
 
-                // Update the UI
+                // Update the UI totals
                 document.getElementById('totalTasks').textContent = totalTasks;
                 document.getElementById('totalOverdue').textContent = totalOverdue;
                 document.getElementById('totalStarted').textContent = totalStarted;
                 document.getElementById('totalNotStarted').textContent = totalNotStarted;
 
+                // Update the tasks chart
                 const tasksCtx = document.getElementById('tasksChart').getContext('2d');
-                const projectsCtx = document.getElementById('projectsChart').getContext('2d');
-
                 if (window.myChart1) {
                     myChart1.data.labels = Object.keys(assigneeCounts);
-                    myChart1.data.datasets[0].data = Object.values(assigneeCounts);
-                    myChart1.data.datasets[1].data = Object.values(overdueCounts);
-                    myChart1.data.datasets[2].data = Object.values(startedCounts);
-                    myChart1.data.datasets[3].data = Object.values(notstartedCounts);
+                    myChart1.data.datasets[0].data = Object.values(assigneeCounts);  // Total tasks per employee
+                    myChart1.data.datasets[1].data = Object.values(overdueCounts);   // Overdue tasks per employee
+                    myChart1.data.datasets[2].data = Object.values(startedCounts);   // Started tasks per employee
+                    myChart1.data.datasets[3].data = Object.values(notStartedCounts);  // Not started tasks per employee
                     myChart1.update();
                 } else {
                     window.myChart1 = new Chart(tasksCtx, {
                         type: 'bar',
                         data: {
-                            labels: Object.keys(assigneeCounts),
+                            labels: Object.keys(assigneeCounts),  // Employee names
                             datasets: [{
                                 label: 'Totaal toegewezen',
                                 data: Object.values(assigneeCounts),
@@ -107,7 +124,7 @@ function fetchAndUpdateData() {
                                 borderWidth: 1
                             }, {
                                 label: 'Niet gestart',
-                                data: Object.values(notstartedCounts),
+                                data: Object.values(notStartedCounts),
                                 backgroundColor: 'rgba(255, 206, 86, 0.5)',
                                 borderColor: 'rgba(255, 206, 86, 1)',
                                 borderWidth: 1
@@ -133,9 +150,11 @@ function fetchAndUpdateData() {
                     });
                 }
 
+                // Update the projects chart
+                const projectsCtx = document.getElementById('projectsChart').getContext('2d');
                 if (window.myChart2) {
                     myChart2.data.labels = Object.keys(data);
-                    myChart2.data.datasets[0].data = Object.values(data).map(tasks => tasks.length);
+                    myChart2.data.datasets[0].data = Object.values(data).map(tasks => tasks.length);  // Number of tasks per project
                     myChart2.update();
                 } else {
                     window.myChart2 = new Chart(projectsCtx, {
@@ -178,5 +197,5 @@ function fetchAndUpdateData() {
 
 document.addEventListener('DOMContentLoaded', (event) => {
     fetchAndUpdateData();
-    setInterval(fetchAndUpdateData, 900000); // Every 15 minutes 30000
+    setInterval(fetchAndUpdateData, 900000); // Refresh every 15 minutes
 });
