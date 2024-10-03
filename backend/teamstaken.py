@@ -40,7 +40,6 @@ personen = {'b4d1b492-7032-463d-83af-aff06efa96ce' : 'Alec van der Schuit',
             '4b9ccf8a-a255-4791-9b2a-4442fd1d7e3f' : 'Sharon Swart',
             '99dba567-3892-4236-a695-2e8c0180c197' : 'Steijn van Buuren',
             '5c84a86f-c592-40f1-af8c-d8e7d108e37e' : 'Thijmen Buurs',
-            'a1266dc0-cdf5-472c-9f17-2f851ebc2f76' : 'Tijn de Ruijter'
 }       # personen met hun teams id
 
 for werknemer in personen:
