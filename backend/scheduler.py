@@ -42,9 +42,11 @@ def reboot_raspberry_pi():
     """Reboot the Raspberry Pi."""
     try:
         logger.info("Rebooting Raspberry Pi...")
-        os.system('sudo shutdown -r now')
+        # Using the full path to sudo
+        os.system('/usr/bin/sudo shutdown -r now')
     except Exception as e:
         logger.error(f"Failed to reboot: {e}")
+
 
 
 def schedule_periodic_tasks():
@@ -56,7 +58,7 @@ def schedule_periodic_tasks():
         scheduler.add_job(run_script, 'interval', hours=1, start_date=datetime.datetime.now() + datetime.timedelta(minutes=2), args=['teamstaken.py'], id='teamstaken_job')
         
         # Schedule daily reboot at 11 PM
-        scheduler.add_job(reboot_raspberry_pi, 'cron', hour=15, minute=55, id='reboot_job')
+        scheduler.add_job(reboot_raspberry_pi, 'cron', hour=16, minute=5, id='reboot_job')
 
         scheduler.start()
         logger.info("Scheduler started and periodic tasks are scheduled.")
