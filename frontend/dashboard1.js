@@ -18,7 +18,8 @@ function fetchAndUpdateData() {
     fetchEmployeeData().then(assigneeCounts => {
         const overdueCounts = { ...assigneeCounts };
         const startedCounts = { ...assigneeCounts };
-        const notstartedCounts = { ...assigneeCounts };
+        const notStartedCounts = { ...assigneeCounts };
+
         let totalTasks = 0;
         let totalOverdue = 0;
         let totalStarted = 0;
@@ -37,28 +38,40 @@ function fetchAndUpdateData() {
                 projects.forEach(project => {
                     data[project].forEach(task => {
                         const dueDateStr = task[2];
-                        const startedStr = task[3]; 
+                        const startedStr = task[3];
+
+                        if (dueDateStr !== 'Geen datum.') {
+                            totalTasks++;
+                        }
+
                         const isOverdue = dueDateStr.startsWith('Te laat.');
-                        
-                        const isStarted = startedStr === "50";
-                        const isNotStarted = startedStr === "0";
+                        if (isOverdue) {
+                            totalOverdue++;
+                        }
+
+                        const isStarted = startedStr === "50" && dueDateStr !== 'Geen datum.';
+                        if (isStarted) {
+                            totalStarted++;
+                        }
+
+                        const isNotStarted = startedStr === "0" && dueDateStr !== 'Geen datum.';
+                        if (isNotStarted) {
+                            totalNotStarted++;
+                        }
 
                         if (task.length > 1 && Array.isArray(task[1]) && task[1].length > 0) {
                             task[1].forEach(assignee => {
                                 if (typeof assignee === 'string' && assigneeCounts.hasOwnProperty(assignee)) {
                                     assigneeCounts[assignee] += 1;
-                                    totalTasks++;
+
                                     if (isOverdue) {
                                         overdueCounts[assignee] += 1;
-                                        totalOverdue++;
                                     }
                                     if (isStarted) {
                                         startedCounts[assignee] += 1;
-                                        totalStarted++;
                                     }
                                     if (isNotStarted) {
-                                        notstartedCounts[assignee] += 1;
-                                        totalNotStarted++;
+                                        notStartedCounts[assignee] += 1;
                                     }
                                 }
                             });
@@ -66,21 +79,18 @@ function fetchAndUpdateData() {
                     });
                 });
 
-                // Update the UI
                 document.getElementById('totalTasks').textContent = totalTasks;
                 document.getElementById('totalOverdue').textContent = totalOverdue;
                 document.getElementById('totalStarted').textContent = totalStarted;
                 document.getElementById('totalNotStarted').textContent = totalNotStarted;
 
                 const tasksCtx = document.getElementById('tasksChart').getContext('2d');
-                const projectsCtx = document.getElementById('projectsChart').getContext('2d');
-
                 if (window.myChart1) {
                     myChart1.data.labels = Object.keys(assigneeCounts);
                     myChart1.data.datasets[0].data = Object.values(assigneeCounts);
                     myChart1.data.datasets[1].data = Object.values(overdueCounts);
                     myChart1.data.datasets[2].data = Object.values(startedCounts);
-                    myChart1.data.datasets[3].data = Object.values(notstartedCounts);
+                    myChart1.data.datasets[3].data = Object.values(notStartedCounts);
                     myChart1.update();
                 } else {
                     window.myChart1 = new Chart(tasksCtx, {
@@ -107,7 +117,7 @@ function fetchAndUpdateData() {
                                 borderWidth: 1
                             }, {
                                 label: 'Niet gestart',
-                                data: Object.values(notstartedCounts),
+                                data: Object.values(notStartedCounts),
                                 backgroundColor: 'rgba(255, 206, 86, 0.5)',
                                 borderColor: 'rgba(255, 206, 86, 1)',
                                 borderWidth: 1
@@ -133,6 +143,7 @@ function fetchAndUpdateData() {
                     });
                 }
 
+                const projectsCtx = document.getElementById('projectsChart').getContext('2d');
                 if (window.myChart2) {
                     myChart2.data.labels = Object.keys(data);
                     myChart2.data.datasets[0].data = Object.values(data).map(tasks => tasks.length);
@@ -178,5 +189,5 @@ function fetchAndUpdateData() {
 
 document.addEventListener('DOMContentLoaded', (event) => {
     fetchAndUpdateData();
-    setInterval(fetchAndUpdateData, 900000); // Every 15 minutes 30000
+    setInterval(fetchAndUpdateData, 900000);
 });

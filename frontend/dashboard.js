@@ -40,46 +40,46 @@ function fetchAndUpdateData() {
                         const dueDateStr = task[2];  // Field with due date or "Geen datum."
                         const startedStr = task[3];  // Field with task status (e.g., "50" or "0")
                         
-                        // If the task has a valid due date
+                        // Only proceed if the task has a valid due date
                         if (dueDateStr !== 'Geen datum.') {
                             totalTasks++;  // Count total tasks
-                        }
 
-                        // Check if the task is overdue
-                        const isOverdue = dueDateStr.startsWith('Te laat.');
-                        if (isOverdue) {
-                            totalOverdue++;  // Count total overdue tasks
-                        }
+                            // Check if the task is overdue
+                            const isOverdue = dueDateStr.startsWith('Te laat.');
+                            if (isOverdue) {
+                                totalOverdue++;  // Count total overdue tasks
+                            }
 
-                        // Check if the task is started
-                        const isStarted = startedStr === "50" && dueDateStr !== 'Geen datum.';
-                        if (isStarted) {
-                            totalStarted++;  // Count total started tasks
-                        }
+                            // Check if the task is started
+                            const isStarted = startedStr === "50";
+                            if (isStarted) {
+                                totalStarted++;  // Count total started tasks
+                            }
 
-                        // Check if the task is not started
-                        const isNotStarted = startedStr === "0" && dueDateStr !== 'Geen datum.';
-                        if (isNotStarted) {
-                            totalNotStarted++;  // Count total not started tasks
-                        }
+                            // Check if the task is not started
+                            const isNotStarted = startedStr === "0";
+                            if (isNotStarted) {
+                                totalNotStarted++;  // Count total not started tasks
+                            }
 
-                        // Assign tasks to employees and update counts per employee
-                        if (task.length > 1 && Array.isArray(task[1]) && task[1].length > 0) {
-                            task[1].forEach(assignee => {
-                                if (typeof assignee === 'string' && assigneeCounts.hasOwnProperty(assignee)) {
-                                    assigneeCounts[assignee] += 1;
+                            // Assign tasks to employees and update counts per employee
+                            if (task.length > 1 && Array.isArray(task[1]) && task[1].length > 0) {
+                                task[1].forEach(assignee => {
+                                    if (typeof assignee === 'string' && assigneeCounts.hasOwnProperty(assignee)) {
+                                        assigneeCounts[assignee] += 1;
 
-                                    if (isOverdue) {
-                                        overdueCounts[assignee] += 1;
+                                        if (isOverdue) {
+                                            overdueCounts[assignee] += 1;
+                                        }
+                                        if (isStarted) {
+                                            startedCounts[assignee] += 1;
+                                        }
+                                        if (isNotStarted) {
+                                            notStartedCounts[assignee] += 1;
+                                        }
                                     }
-                                    if (isStarted) {
-                                        startedCounts[assignee] += 1;
-                                    }
-                                    if (isNotStarted) {
-                                        notStartedCounts[assignee] += 1;
-                                    }
-                                }
-                            });
+                                });
+                            }
                         }
                     });
                 });
